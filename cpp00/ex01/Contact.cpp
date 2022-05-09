@@ -9,44 +9,38 @@ Contact::Contact()
 Contact::~Contact()
 {
 }
-void Contact::set_name(void)
-{
-	std::cout << "PLEASE INSERT NAME" << std::endl;
-	std::cin >> this->firstname;
+void Contact::set_name(std::string name) : firstname(name)
+{		
 }
-void Contact::set_last_name(void)
+void Contact::set_last_name(std::string lname) : lastname(lname)
 {
-	std::getline(std::cin, this->lastname);
 }
-void Contact::set_nickname(void)
+void Contact::set_nickname(std::string nname) : nickname(nname)
 {
-	std::getline(std::cin, this->nickname);
 }
-void Contact::set_phone_number(void)
+void Contact::set_phone_number(std::string phnumber) : phonenumber(phnumber)
 {
-	std::getline(std::cin, this->phonenumber);
 }
-void Contact::set_secret(void)
+void Contact::set_secret(std::string dsecret) : darkestsecret(dsecret)
 {
-	std::getline(std::cin, this->darkestsecret);
 }
-void Contact::get_name(void)
+std::string Contact::get_name(void)
 {
-	std::cout << this->firstname << std::endl;
+	std::cout << this->firstname;
 }
-void Contact::get_last_name(void)
+std::string Contact::get_last_name(void)
 {
-	std::cout << this->lastname << std::endl;
+	std::cout << this->lastname;
 }
-void Contact::get_nickname(void)
+std::string Contact::get_nickname(void)
 {
-	std::cout << this->nickname << std::endl;
+	std::cout << this->nickname;
 }
-void Contact::get_phone_number(void)
+std::string Contact::get_phone_number(void)
 {
-	std::cout << this->phonenumber << std::endl;
+	std::cout << this->phonenumber;
 }
-void Contact::get_darkest_secret(void)
+std::string Contact::get_darkest_secret(void)
 {
 	std::cout << this->darkestsecret;
 }

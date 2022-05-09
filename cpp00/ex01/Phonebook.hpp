@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "Contact.hpp"
 
 class Phonebook
 {
@@ -14,7 +15,10 @@ class Phonebook
 		Phonebook();
 		~Phonebook();
 
-		void	set_information(void);
+		void	set_information(Contact c);
 		void	get_information(void);
+		void	search_contact(void);
 };
+
+#endif
 
