@@ -10,13 +10,21 @@ void	ft_add_contact(Contact c)
 	std::string dsecret;
 	
 	std::cout << "PLEASE ENTER NAME" << std::endl;
-	getline(std::cin << std:ws, name);
+	getline(std::cin >> std::ws, name);
+	c.set_name(name);
 	std::cout << "PLEASE ENTER LAST NAME" << std::endl;
-	getline(std::cin << std:ws, lname);
+	getline(std::cin >> std::ws, lname);
+	c.set_last_name(lname);
 	std::cout << "PLEASE ENTER NICKNAME" << std::endl;
-	getline(std::cin << std:ws, nname);
+	getline(std::cin >> std::ws, nname);
+	c.set_nickname(nname);
 	std::cout << "PLEASE ENTER PHONE NUMBER" << std::endl;
-	getline(std::cin << std::ws, phnumber);
+	getline(std::cin >> std::ws, phnumber);
+	c.set_phone_number(phnumber);
+	std::cout << "PLEASE ENTER DARKEST SECRET" << std::endl;
+	getline(std::cin >> std::ws, dsecret);
+	c.set_secret(dsecret);
+}
 
 
 
@@ -34,6 +42,7 @@ int main(void)
 		if(input == "ADD")
 		{
 			ft_add_contact(contact);
+			phonebook.set_information(contact);
 		}
 		if(input == "SEARCH")
 			phonebook.display_search();
