@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 class	Contact
 {
@@ -27,6 +28,8 @@ class	Contact
 		std::string get_nickname(void);
 		std::string get_phone_number(void);
 		std::string get_darkest_secret(void);
+		void tostring(void);
+		void show_contact(void);
 
 };
 

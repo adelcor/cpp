@@ -49,6 +49,34 @@ std::string Contact::get_darkest_secret(void)
 {
 	return(this->darkestsecret);
 }
+void	Contact::tostring(void)
+{
+	if (this->firstname.length() > 10)
+		std::cout << std::setfill(' ') << std::setw(10) << this->firstname.substr(0, 9).append(".") << "|";
+	else
+		std::cout << std::setfill(' ') << std::setw(10) << this->firstname << '|';
+	if (this->lastname.length() > 10)
+		std::cout << std::setfill(' ') << std::setw(10) << this->lastname.substr(0, 9).append(".") << "|";
+	else
+		std::cout << std::setfill(' ') << std::setw(10) << this->lastname << '|';
+	if (this->nickname.length() > 10)
+		std::cout << std::setfill(' ') << std::setw(10) << this->nickname.substr(0, 9).append(".") << "|";
+	else
+		std::cout << std::setfill(' ') << std::setw(10) << this->nickname << '|';
+}
+
+void	Contact::show_contact(void)
+{
+	std::cout << "First Name: " << this->firstname << std::endl;
+	std::cout << "Last Name: " << this->lastname << std::endl;
+	std::cout << "Nickname: " << this->nickname << std::endl;
+	std::cout << "Phone Number: " << this->phonenumber << std::endl;
+	std::cout << "Darkest Secret: " << this->darkestsecret << std::endl;
+
+	std::cout << "Enter any key to continue..." << std::endl;
+	return;
+}
+
 
 
 
