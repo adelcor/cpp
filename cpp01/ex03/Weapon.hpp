@@ -15,3 +15,5 @@ class Weapon
 		void setType(const std::string &weapon);
 };
 
+#endif
+
