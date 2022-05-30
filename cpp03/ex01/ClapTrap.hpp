@@ -1,9 +1,11 @@
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 #include <string>
 #include <iostream>
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string _name;
 		unsigned int _hit_pts;
 		unsigned int _energy_pts;
@@ -22,4 +24,4 @@ class ClapTrap
 		void beRepaired(unsigned int amount);
 };
 
-
+#endif
