@@ -48,7 +48,7 @@ void Cat::makeSound(void)const
 	std::cout << this->getType() << " says: **Meeeoow**" << std::endl;
 }
 
-void Cat:getIdeas(void)const
+void Cat::getIdeas(void)const
 {
 	for (int i = 0; i < 3; i++)
 		std::cout << "\tIdea " << i << " of the Cat is: \"" << this->_brain->getIdea(i) << "\" at the adress " << this->_brain->getIdeaAddress(i) << std::endl;
@@ -56,6 +56,6 @@ void Cat:getIdeas(void)const
 
 void Cat::setIdea(size_t i, std::string idea)
 {
-	this->_brain->setIdea(1, idea);
+	this->_brain->setIdea(i, idea);
 }
 
