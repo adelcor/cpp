@@ -25,8 +25,10 @@ bool	Contact::set_contact()
 	for (int i = FirstName; i <= DarkestSecret; i++)
 	{
 		std::cout << "Please enter the " << Contact::_fields_name[i] << ":\n+";
-		while ( !(std::getline(std::cin, this->_informations[i])) || this->_informations[i].length() == 0)
+
+		while ( !(std::getline(std::cin, this->_informations[i])) || this->_informations[i].length() == 0 || i == PhoneNumber)
 		{
+
 			if(std::cin.eof() == true)
 			{
 				std::cout << "You Pressed D. Exiting phonebook now." << std::endl;
@@ -38,7 +40,30 @@ bool	Contact::set_contact()
 				std::cout << "Empty contact information not allowed." << std::endl;
 				std::cout << "Please enter the " << Contact::_fields_name[i] << ":\n+";
 			}
+			if(i == PhoneNumber)
+			{
+				for(unsigned long z = 0; z < this->_informations[i].length(); z++)
+				{
+					{
+						if(isdigit(this->_informations[i][z]) == 0)
+						{
+							this->_informations[i].clear();
+							std::cout << "Only numbers, please" << std::endl;
+							std::cout << "Please enter the " << Contact::_fields_name[i] << ":\n+";
+						}
+						else
+						{
+							i++;
+							std::cout << "Please enter the " << Contact::_fields_name[i] << ":\n+";
+						//	break;
+						}
+					}
+				}
+		
+			}
+
 		}
+	
 	}
 	std::cout << "Contact added succesfully." << std::endl;
 	return (true);
