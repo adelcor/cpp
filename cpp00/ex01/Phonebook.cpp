@@ -16,7 +16,7 @@ Phonebook::~Phonebook(void)
 void	Phonebook::set_information(void)
 {
 	std::string input;
-	if (this->_delete == 7)
+	if (this->_delete == 8)
 		this->_delete = 0;
 	if (this->_full == false)
 	{
