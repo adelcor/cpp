@@ -22,6 +22,7 @@ Contact::~Contact()
 
 bool	Contact::set_contact()
 {
+
 	for (int i = FirstName; i <= DarkestSecret; i++)
 	{
 		std::cout << "Please enter the " << Contact::_fields_name[i] << ":\n+";
@@ -42,25 +43,29 @@ bool	Contact::set_contact()
 			}
 			if(i == PhoneNumber)
 			{
+				bool digit = true;
+
 				for(unsigned long z = 0; z < this->_informations[i].length(); z++)
 				{
-					{
-						if(isdigit(this->_informations[i][z]) == 0)
-						{
-							this->_informations[i].clear();
-							std::cout << "Only numbers, please" << std::endl;
-							std::cout << "Please enter the " << Contact::_fields_name[i] << ":\n+";
-						}
-						else
-						{
-							i++;
-							std::cout << "Please enter the " << Contact::_fields_name[i] << ":\n+";
-						//	break;
-						}
-					}
+					if(isdigit(this->_informations[i][z]) == 0)
+						digit = false;
 				}
-		
+				
+				if(digit == false)
+				{
+					this->_informations[i].clear();
+					std::cout << "Only numbers, please" << std::endl;
+					std::cout << "Please enter the " << Contact::_fields_name[i] << ":\n+";
+				}
+			
+				else
+				{
+				i++;
+				std::cout << "Please enter the " << Contact::_fields_name[i] << ":\n+";
+				}
+				
 			}
+			
 
 		}
 	
