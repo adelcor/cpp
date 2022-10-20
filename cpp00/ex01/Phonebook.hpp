@@ -11,6 +11,7 @@ class Phonebook
 	private:
 		Contact _contacts[8];
 		int		_index;
+		int	_delete;
 		bool	_full;
 
 	public:

@@ -3,6 +3,7 @@
 Phonebook::Phonebook(void)
 {
 	this->_index = 0;
+	this->_delete = 0;
 	this->_full = false;
 	return;
 }
@@ -15,6 +16,8 @@ Phonebook::~Phonebook(void)
 void	Phonebook::set_information(void)
 {
 	std::string input;
+	if (this->_delete == 7)
+		this->_delete = 0;
 	if (this->_full == false)
 	{
 		std::cout  << "This is your contact #" << this->_index + 1 << std::endl;
@@ -39,8 +42,8 @@ void	Phonebook::set_information(void)
 		}
 		else if (input.compare("1") == 0)
 		{
-			for (int i = 1; i < 8; i++)
-				this->_contacts[this->_index].set_contact();
+				this->_contacts[this->_delete].set_contact();
+				this->_delete++;
 		}
 		else
 			std::cout << "Back to main menu without deleting and creating a contact." << std::endl;
