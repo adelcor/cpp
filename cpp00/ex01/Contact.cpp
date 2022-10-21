@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:23:23 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/10/20 18:23:27 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/10/21 14:22:06 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ bool	Contact::set_contact()
 				std::cout << "You Pressed D. Exiting phonebook now." << std::endl;
 				std::exit(0);
 			}
-			else if (this->_informations[i].length() == 0)
+			else if (this->_informations[i].length() == 0 && i != PhoneNumber)
 			{
 				this->_informations[i].clear();
 				std::cout << "Empty contact information not allowed." << std::endl;
@@ -61,6 +61,11 @@ bool	Contact::set_contact()
 				{
 					if(isdigit(this->_informations[i][z]) == 0)
 						digit = false;
+				}
+
+				if(this->_informations[i].length() == 0)
+				{
+					digit = false;
 				}
 				
 				if(digit == false)
