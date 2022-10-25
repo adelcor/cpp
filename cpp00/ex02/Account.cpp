@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:06:17 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/10/24 18:06:29 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/10/25 11:18:02 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,15 @@
 #include <iomanip>
 #include <ctime>
 
-// Init all the start-values
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-// Empty constuctor, when called without input
 Account::Account() {}
 
-// Constructor with init deposit
-// after the creation a note about the created account is printed
 Account::Account(int initial_deposit)
 {
-// Init all the start-values of each account
-// and keep track of the number of accounts as well as the total ammount of money
 	this->_nbDeposits = 0;
 	this->_nbWithdrawals = 0;
 	this->_amount = initial_deposit;
@@ -37,7 +31,6 @@ Account::Account(int initial_deposit)
 	this->_accountIndex = Account::_nbAccounts;
 	Account::_nbAccounts++;
 
-// Printing note of the creation of the Account with its starting values and the state created
 	_displayTimestamp();
 	std::cout <<
 	"index:" << this->_accountIndex << ";" <<
@@ -46,7 +39,6 @@ Account::Account(int initial_deposit)
 	std::endl;
 }
 
-// destructor that prints all the ending values as well as the state closed
 Account::~Account(void)
 {
 	_displayTimestamp();
@@ -57,31 +49,26 @@ Account::~Account(void)
 	std::endl;
 }
 
-// getter for the total number of accounts
 int	Account::getNbAccounts( void )
 {
 	return (Account::_nbAccounts);
 }
 
-// getter for the total amoount of money of all accounts
 int	Account::getTotalAmount( void )
 {
 	return (Account::_totalAmount);
 }
 
-// getter for the total number of deposits
 int	Account::getNbDeposits( void )
 {
 	return (Account::_totalNbDeposits);
 }
 
-// getter for the total number of withdrawals
 int	Account::getNbWithdrawals( void )
 {
 	return (Account::_totalNbWithdrawals);
 }
 
-// getter to display all the accounts infos
 void	Account::displayAccountsInfos( void )
 {
 	_displayTimestamp();
@@ -93,7 +80,6 @@ void	Account::displayAccountsInfos( void )
 	std::endl;
 }
 
-// makes a deposit
 void	Account::makeDeposit( int deposit )
 {
 	_displayTimestamp();
@@ -111,7 +97,6 @@ void	Account::makeDeposit( int deposit )
 	std::endl;
 }
 
-// makes a withdraw, returns true if successfull, false if not
 bool	Account::makeWithdrawal( int withdrawal )
 {
 	_displayTimestamp();
@@ -140,13 +125,11 @@ bool	Account::makeWithdrawal( int withdrawal )
 	}
 }
 
-// returns the amount of money of the account
 int		Account::checkAmount( void ) const
 {
 	return (this->_amount);
 }
 
-// displays the whole status of an account
 void	Account::displayStatus( void ) const
 {
 	_displayTimestamp();
@@ -158,7 +141,6 @@ void	Account::displayStatus( void ) const
 	std::endl;
 }
 
-// displays the timestamp in the correct format
 void	Account::_displayTimestamp( void )
 {
 	time_t now = std::time(NULL);
@@ -171,6 +153,4 @@ void	Account::_displayTimestamp( void )
 	std::setfill('0') << std::setw(2) << timenow.tm_min <<
 	std::setfill('0') << std::setw(2) << timenow.tm_sec <<
 	"] ";
-	// insert this line below instead of the above and then run 'make re && ./leak_information >my.log && diff my.log 19920104_091532.log'
-	// std::cout << "[19920104_091532] ";
 }
