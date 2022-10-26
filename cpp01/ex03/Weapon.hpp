@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/25 16:32:01 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/10/25 17:15:01 by adel-cor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef WEAPON_HPP
 # define WEAPON_HPP
 
@@ -11,8 +23,8 @@ class Weapon
 	public:
 		Weapon(const std::string &weapon);
 		~Weapon();
-		std::string getType()const;
-		void setType(const std::string &weapon);
+		std::string const &getType();
+		void setType(std::string weapon);
 };
 
 #endif
