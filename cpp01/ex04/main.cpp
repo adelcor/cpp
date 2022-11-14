@@ -5,58 +5,58 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 17:04:46 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/10/26 17:04:52 by adel-cor         ###   ########.fr       */
+/*   Created: 2022/11/14 17:21:18 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/11/14 17:21:25 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string>
 #include <iostream>
 #include <fstream>
-#include <cstring>
 
-int	main(int argc, char **argv)
+void replace(char **argv)
 {
-	std::ifstream	infile;
-	std::ofstream	outfile;
-	std::string	filename;
-	std::string	temp;
-	std::string	aux;
-	int	len;
-	len = 0;
+	std::string filename(argv[1]);
+	std::string s1(argv[2]);
+	std::string s2(argv[3]);
 
-	if(argc != 4)
+	std::ifstream inputfs(filename);
+	if (inputfs.good())
 	{
-		std::cerr << "Incorrect number of arguments";
-		len = 1;
-		exit(len);
+		if (inputfs.peek() == std::ifstream::traits_type::eof())
+			std::cout << "Error: File is empty" << std::endl;
+		else
+		{
+			std::ofstream outputfs(filename.append(".replace").data());
+			while (inputfs.good() && outputfs.good())
+			{
+				std::string line;
+				std::size_t found;
+				std::getline(inputfs, line);
+				found = line.find(s1, 0);
+				while (found != std::string::npos)
+				{
+					line.erase(found, s1.length());
+					line.insert(found, s2);
+					found = line.find(s1, found);
+				}
+				outputfs << line;
+				if (inputfs.eof())
+					break;
+				outputfs << std::endl;
+			}
+			inputfs.close();
+			outputfs.close();
+		}
 	}
 	else
-	{
-		infile.open(argv[1], std::ios::in);
-		if (!infile)
-		{
-			std::cerr << "File does not exist";
-			exit(1);
-		}
-		if (!(infile.good()))
-		{
-			std::cerr << "Error handling infile";
-			exit(1);
-		}
-		filename = argv[1];
-		filename.append(".replace");
-		len = strlen(argv[2]);
-		outfile.open(filename, std::ios::trunc);
-		while(infile.good())
-		{
-			std::getline(infile, aux, ' ');
-			if (aux.compare(argv[2]) == 0)
-				outfile << argv[3] << ' ';
-			else
-				outfile << aux << ' ';
-		}
-		infile.close();
-		outfile.close();
-	}
-	return(0);
+		std::cout << "Error: " << std::endl;
+}
+
+int main(int argc, char **argv)
+{
+	if (argc == 4)
+		replace(argv);
+	else
+		std::cout << "Error: Usage: ./replace <filename> <string 1> <string 2>" << std::endl;
 }
