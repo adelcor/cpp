@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 18:19:05 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/10 18:20:20 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/16 12:42:02 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	Fixed::setRawBits(int const raw)
 
 std::ostream	&operator<<(std::ostream &o, Fixed const &fixed)
 {
-	o << fixed. toFloat();
+	o << fixed.toFloat();
 	return(o);
 }
 

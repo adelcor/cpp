@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:21:05 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/10 18:25:58 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/16 13:33:50 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ Fixed &Fixed::operator=(const Fixed &src)
 
 bool	Fixed::operator>(Fixed fixed)const
 {
+	std::cout << "Hola Cristian estoy aqui" << std::endl;
 	return(this->toFloat() > fixed.toFloat());
 }
 
