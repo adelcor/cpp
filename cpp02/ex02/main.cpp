@@ -27,6 +27,16 @@ int main(void)
 	std::cout << Fixed::max(a, b) << "\t\tthe max of a and b\n" << std::endl;
 	std::cout << Fixed::min(a, b) << "\t\tthe min of a and b\n" << std::endl;
 	std::cout << (a > b) << std::endl;
+	std::cout << (a < b) << std::endl;
+	std::cout << (a >= b) << std::endl;
+	std::cout << (a <= b) << std::endl;
+	std::cout << (a == b) << std::endl;
+	std::cout << (a != b) << std::endl;
+	std::cout << (a + b) << std::endl;
+	std::cout << (a - b) << std::endl;
+	std::cout << (a / b) << std::endl;
+	std::cout << (a * b) << std::endl;
+
 	return(0);
 }
 
