@@ -87,22 +87,30 @@ bool	Fixed::operator!=(Fixed fixed)const
 	return(this->toFloat() != fixed.toFloat());
 }
 
-float	Fixed::operator+(Fixed fixed)const
+Fixed	Fixed::operator+(Fixed const &fixed)const
 {
 	std::cout << "operator + called" << std::endl;
-	return(this->toFloat() + fixed.toFloat());
+	Fixed temp;
+	temp.setRawBits(this->_fp_value + fixed.getRawBits());
+	return(temp);
+//	return(this->toFloat() + fixed.toFloat());
 }
 
-float	Fixed::operator-(Fixed fixed)const
+Fixed	Fixed::operator-(Fixed const &fixed)const
 {
 	std::cout << "operator - called" << std::endl;
-	return(this->toFloat() - fixed.toFloat());
+	Fixed temp;
+	temp.setRawBits(this->_fp_value - fixed.getRawBits());
+	return(temp);
+//	return(this->toFloat() - fixed.toFloat());
 }
 
-float	Fixed::operator*(Fixed fixed)const
+Fixed	Fixed::operator*(Fixed const &fixed)const
 {
 	std::cout << "operator * called" << std::endl;
-	return (this->toFloat() * fixed.toFloat());
+	Fixed temp((float)(this->toFloat() * fixed.toFloat()) / (1 << (2 * _fract_bits )));
+	return(temp);
+//	return (this->toFloat() * fixed.toFloat());
 }
 
 float	Fixed::operator/(Fixed fixed)const

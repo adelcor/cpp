@@ -36,9 +36,9 @@ class Fixed
 		bool operator==(Fixed fixed)const;
 		bool operator!=(Fixed fixed)const;
 
-		float operator+(Fixed fixed)const;
-		float operator-(Fixed fixed)const;
-		float operator*(Fixed fixed)const;
+		Fixed operator+(Fixed const &fixed)const;
+		Fixed operator-(Fixed const &fixed)const;
+		Fixed operator*(Fixed const &fixed)const;
 		float operator/(Fixed fixed)const;
 
 		Fixed operator++();
