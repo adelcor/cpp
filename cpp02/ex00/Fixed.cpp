@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 17:26:28 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/16 12:25:40 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:51:49 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ Fixed::Fixed(void):_fp_value(0)
 Fixed::Fixed(const Fixed &src)
 {
 	std::cout << "Fixed Copy Constructor called" << std::endl;
-//	this->_fp_value = src._fp_value;
 	*this = src;
 }
 

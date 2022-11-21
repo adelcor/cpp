@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 12:59:47 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/16 13:33:34 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:49:30 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(void)
 
 	std::cout << a << "\t\tis a at start\n" << std::endl;
 	std::cout << ++a << "\t\tis a at ++a\n" << std::endl;
+	
 	std::cout << a << "\t\tis a after ++a\n" << std::endl;
 	std::cout << a++ << "\t\tis a at a++\n" << std::endl;
 	std::cout << a << "\t\tis a after a++\n" << std::endl;
@@ -32,10 +33,19 @@ int main(void)
 	std::cout << (a <= b) << std::endl;
 	std::cout << (a == b) << std::endl;
 	std::cout << (a != b) << std::endl;
-	std::cout << (a + b) << std::endl;
-	std::cout << (a - b) << std::endl;
-	std::cout << (a / b) << std::endl;
-	std::cout << (a * b) << std::endl;
+
+	Fixed c = Fixed(8);
+	Fixed d = Fixed(16.0f);
+
+	std::cout << (c * c) << std::endl;
+	std::cout << (c * d) << std::endl;
+	std::cout << (c + c) << std::endl;
+	std::cout << (c + d) << std::endl;
+	std::cout << (c - c) << std::endl;
+	std::cout << (d - c) << std::endl;
+	std::cout << (d / c) << std::endl;
+	std::cout << (d / d) << std::endl;
+	std::cout << (c / d) << std::endl;
 
 	return(0);
 }

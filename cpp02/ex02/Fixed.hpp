@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:21:47 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/16 13:33:47 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:49:36 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ class Fixed
 		Fixed operator+(Fixed const &fixed)const;
 		Fixed operator-(Fixed const &fixed)const;
 		Fixed operator*(Fixed const &fixed)const;
-		float operator/(Fixed fixed)const;
-
-		Fixed operator++();
-		Fixed operator--();
+		Fixed operator/(Fixed const &fixed)const;
 
 		Fixed operator++(int);
+		Fixed operator--();
+
+		Fixed operator++();
 		Fixed operator--(int);
 
 		float toFloat(void)const;
