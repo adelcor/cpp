@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/23 12:24:07 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/11/23 12:25:03 by adel-cor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(): ClapTrap()
@@ -39,11 +51,11 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &src)
 	return *this;
 }
 
-void	ScavTrap::attack(const std::string &target)
+void	ScavTrap::attack(std::string const &target)
 {
 	if (this->_energy_pts > 0 && this->_hit_pts > 0)
 	{
-		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_energy_pts--;
+		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_energy_pts-- << std::endl;
 	}
 	else if (this->_energy_pts == 0)
 		std::cout << "\033[31mScavTrap " << this->_name << " is not able to attack " << target << ", because he has no energy points left.\033[0m" << std::endl;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/23 12:23:31 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/11/23 12:26:23 by adel-cor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap():_name("default"), _hit_pts(10), _energy_pts(10), _attack_dmg(0)
@@ -31,7 +43,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &src)
 	return *this;
 }
 
-void ClapTrap::attack(const std::string &target)
+void ClapTrap::attack(std::string const &target)
 {
 	if (this->_energy_pts > 0 && this->_hit_pts > 0)
 	{

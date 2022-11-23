@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 18:04:17 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/21 18:16:34 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:21:23 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class ClapTrap
 
 		ClapTrap &operator=(const ClapTrap &src);
 
-		void attack(const std::string &target);
+		void attack(std::string const &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };

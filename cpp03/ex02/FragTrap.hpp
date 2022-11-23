@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 18:30:17 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/21 18:30:45 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:34:51 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class FragTrap: public ClapTrap
 		virtual ~FragTrap();
 
 		FragTrap &operator=(const FragTrap &src);
-
+		void attack(const std::string &target);
 		void highFiveGuys(void);
 };
 

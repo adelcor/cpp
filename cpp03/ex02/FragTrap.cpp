@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 18:30:08 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/21 18:30:43 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/23 11:13:02 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,19 @@ FragTrap &FragTrap::operator=(const FragTrap &src)
 	this->_energy_pts = src._energy_pts;
 	this->_attack_dmg = src._attack_dmg;
 	return *this;
+}
+
+
+void    FragTrap::attack(const std::string &target)
+{
+    if (this->_energy_pts > 0 && this->_hit_pts > 0)
+    {
+        std::cout << "Fragtrap " << this->_name << " attacks " << target << ", causing " << this->_energy_pts-- << std::endl;
+    }
+    else if (this->_energy_pts == 0)
+        std::cout << "\033[31mFragtrap " << this->_name << " is not able to attack " << target << ", because he has no energy points left.\033[0m" << std::endl;
+    else
+        std::cout << "\033[31mFragtrap " << this->_name << " is not able to attack " << target << ", because he has not enough hit points.\033[0m" << std::endl;
 }
 
 void	FragTrap::highFiveGuys(void)

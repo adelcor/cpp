@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 18:26:48 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/21 18:27:32 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:19:07 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ScavTrap: public ClapTrap
 
 		ScavTrap &operator=(const ScavTrap &src);
 
-/*		void attack(const std::string &target); */
+		void attack(const std::string &target); 
 		void guardGate(void);
 };
 

@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 18:48:49 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/21 18:48:52 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:59:35 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &copy): ClapTrap(copy), ScavTrap(copy
 	std::cout << "DiamondTrap Copy Constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_trap")
+DiamondTrap::DiamondTrap(std::string name): FragTrap(50, name)
 {
 	this->_name = name;
 	this->_hit_pts = FragTrap::_hit_pts;
@@ -54,6 +54,21 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &src)
 void	DiamondTrap::attack(const std::string &target)
 {
 	ScavTrap::attack(target);
+}
+
+void	DiamondTrap::get_hit_points(void)
+{
+	std::cout << this->_name << " " << this->_hit_pts << std::endl;
+}
+
+void 	DiamondTrap::get_energy_points(void)
+{
+	std::cout << this->_name << " " << this->_energy_pts << std::endl;
+}
+
+void	DiamondTrap::get_attack_dmg(void)
+{
+	std::cout << this->_name << "" << this->_attack_dmg << std::endl;
 }
 
 void	DiamondTrap::whoAmI(void)

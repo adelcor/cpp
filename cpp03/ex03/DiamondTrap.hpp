@@ -17,7 +17,9 @@ class DiamondTrap: public ScavTrap, public FragTrap
 		virtual ~DiamondTrap();
 
 		DiamondTrap &operator=(const DiamondTrap &src);
-
+		void get_energy_points(void);
+		void get_hit_points(void);
+		void get_attack_dmg(void);	
 		void attack(const std::string &target);
 		void whoAmI(void);
 

@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 18:04:07 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/21 18:16:31 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:20:18 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &src)
 	return *this;
 }
 
-void ClapTrap::attack(const std::string &target)
+void ClapTrap::attack(std::string const &target)
 {
 	if (this->_energy_pts > 0 && this->_hit_pts > 0)
 	{

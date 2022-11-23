@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/23 12:32:14 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/11/23 13:00:12 by adel-cor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(): ClapTrap()
@@ -39,7 +51,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &src)
 	return *this;
 }
 
-void	ScavTrap::attack(const std::string &target)
+void	ScavTrap::attack(std::string const &target)
 {
 	if (this->_energy_pts > 0 && this->_hit_pts > 0)
 	{

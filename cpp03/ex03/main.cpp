@@ -64,13 +64,22 @@ int main(void)
 		DiamondTrap a;
 		DiamondTrap b("Giga Chadd");
 		DiamondTrap c(a);
-
+		a.get_hit_points();
+		a.get_energy_points();
+		a.get_attack_dmg();
+		b.get_hit_points();
+		b.get_energy_points();
+		b.get_attack_dmg();
 		std::cout << "\033[34mTesting\033[0m" << std::endl;
 		a.whoAmI();
 		a.attack("some super random dude");
 		b.whoAmI();
 		b.attack("Chadd-clone");
 		c.whoAmI();
+		a.guardGate();
+		a.highFiveGuys();
+		b.guardGate();
+		b.highFiveGuys();
 		std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
 	}
 

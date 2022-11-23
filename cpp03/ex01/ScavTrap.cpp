@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 18:27:03 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/21 18:27:30 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:21:39 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,17 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &src)
 	return *this;
 }
 
-/*void	ScavTrap::attack(const std::string &target)
+void	ScavTrap::attack(const std::string &target)
 {
 	if (this->_energy_pts > 0 && this->_hit_pts > 0)
 	{
-		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_energy_pts--;
+		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_energy_pts-- << std::endl;
 	}
 	else if (this->_energy_pts == 0)
 		std::cout << "\033[31mScavTrap " << this->_name << " is not able to attack " << target << ", because he has no energy points left.\033[0m" << std::endl;
 	else
 		std::cout << "\033[31mScavTrap " << this->_name << " is not able to attack " << target << ", because he has not enough hit points.\033[0m" << std::endl;
-}*/
+}
 
 void	ScavTrap::guardGate(void)
 {
