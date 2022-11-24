@@ -13,7 +13,7 @@
 #ifndef PHONEBOOK_HPP
 #define	PHONEBOOK_HPP
 
-#include <string>
+#include <cstring>
 #include <iomanip>
 #include <cstdlib>
 #include "Contact.hpp"

@@ -24,13 +24,10 @@ class FragTrap: virtual public ClapTrap
 		FragTrap();
 		FragTrap(const FragTrap &copy);
 		FragTrap(std::string name);
-		FragTrap(unsigned int energy_points, std::string name);
 
 		~FragTrap();
 
 		FragTrap &operator=(const FragTrap &src);
-		void attack(const std::string &target);
-
 		void highFiveGuys(void);
 };
 

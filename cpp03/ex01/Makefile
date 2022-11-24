@@ -2,6 +2,7 @@ SRCS			= ClapTrap.cpp main.cpp ScavTrap.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
+
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 

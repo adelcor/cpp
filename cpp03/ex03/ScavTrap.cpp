@@ -55,7 +55,7 @@ void	ScavTrap::attack(std::string const &target)
 {
 	if (this->_energy_pts > 0 && this->_hit_pts > 0)
 	{
-		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_energy_pts--;
+		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_energy_pts-- << std::endl;
 	}
 	else if (this->_energy_pts == 0)
 		std::cout << "\033[31mScavTrap " << this->_name << " is not able to attack " << target << ", because he has no energy points left.\033[0m" << std::endl;

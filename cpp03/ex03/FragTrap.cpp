@@ -33,14 +33,6 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 	std::cout << "FragTrap Constructor for " << this->_name << " called" << std::endl;
 }
 
-FragTrap::FragTrap(unsigned int energy_points, std::string name) : ClapTrap(name + "clap_name")
-{
-	this->_hit_pts = 100;
-	this->_energy_pts = energy_points;
-	this->_attack_dmg = 30;
-	std::cout << "FragTrap Constructor for " << this->_name << " called" << std::endl;
-}	
-
 FragTrap::~FragTrap()
 {
 	std::cout << "FragTrap Deconstructor for " << this->_name << " called" << std::endl;
@@ -57,17 +49,7 @@ FragTrap &FragTrap::operator=(const FragTrap &src)
 }
 
 
-void    FragTrap::attack(const std::string &target)
-{
-    if (this->_energy_pts > 0 && this->_hit_pts > 0)
-    {
-        std::cout << "Fragtrap " << this->_name << " attacks " << target << ", causing " << this->_energy_pts-- << std::endl;
-    }
-    else if (this->_energy_pts == 0)
-        std::cout << "\033[31mFragtrap " << this->_name << " is not able to attack " << target << ", because he has no energy points left.\033[0m" << std::endl;
-    else
-        std::cout << "\033[31mFragtrap " << this->_name << " is not able to attack " << target << ", because he has not enough hit points.\033[0m" << std::endl;
-}
+
 
 
 void	FragTrap::highFiveGuys(void)

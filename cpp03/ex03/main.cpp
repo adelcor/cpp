@@ -64,9 +64,11 @@ int main(void)
 		DiamondTrap a;
 		DiamondTrap b("Giga Chadd");
 		DiamondTrap c(a);
+		std::cout << "Without fixing inheritance overriding" << std::endl;
 		a.get_hit_points();
 		a.get_energy_points();
 		a.get_attack_dmg();
+		std::cout << "Inheritance overriding fixed" << std::endl;
 		b.get_hit_points();
 		b.get_energy_points();
 		b.get_attack_dmg();
