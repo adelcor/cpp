@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/25 13:06:55 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/11/29 13:51:08 by adel-cor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
 # include <iostream>
 # include <string>
 
-class AMateria;
+	class AMateria;
 
 class ICharacter
 {

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/24 17:29:58 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/11/29 10:01:42 by adel-cor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 
 Dog::Dog(): Animal()
@@ -16,7 +28,15 @@ Dog::Dog(): Animal()
 Dog::Dog(const Dog &copy): Animal()
 {
 	std::cout << "Dog Copy Constructor called" << std::endl;
-	*this = copy;
+    this->_type = copy._type;
+    this->_brain = new Brain();
+    if (this->_brain == NULL)
+    {
+        perror("Dog Brain allocation failed");
+        std::cerr << "Exiting the process now." << std::endl;
+        exit(1);
+    }
+    *this->_brain = *copy._brain;
 }
 
 Dog::~Dog()

@@ -1,73 +1,107 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 12:09:08 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/11/29 14:09:10 by adel-cor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
 
-MateriaSource::MateriaSource(): _index(0)
+MateriaSource::MateriaSource()
 {
 	std::cout << "MateriaSource Default Constructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		_materias[i] = NULL;
+	}
 }
 
 MateriaSource::MateriaSource( const MateriaSource & src )
 {
 	std::cout << "MateriaSource Copy Constructor called" << std::endl;
-	*this = src;
+	for (int i = 0; i < 4; i++)
+	{
+		this->_materias[i] = src._materias[i] ? src._materias[i]->clone() : NULL;
+	}
+
 }
 
-
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
 
 MateriaSource::~MateriaSource()
 {
 	std::cout << "MateriaSource Destructor called" << std::endl;
 
-	for (int i = 0; i < this->_index; i++)
+	for (int i = 0; i < 4; i++)
+	{
 		if (this->_materias[i])
-			delete this->_materias[i];
+		{
+			delete (this->_materias[i]);
+		}
+	}
 }
 
 
-/*
-** --------------------------------- OVERLOAD ---------------------------------
-*/
 
-MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
+
+MateriaSource 	&MateriaSource::operator=( MateriaSource const & rhs )
 {
 	std::cout << "MateriaSource Assignation Operator called" << std::endl;
 
-	for (int i = 0; i < 4; i++)
-		if (this->_materias[i])
-			delete this->_materias[i];
-
-	std::copy(rhs._materias, rhs._materias + 4, this->_materias);
-	this->_index = rhs._index;
+	if(this != &rhs)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			if (rhs._materias[i])
+			{
+				if(this->_materias[i])
+				{
+					delete (this->_materias[i]);
+				}
+				this->_materias[i] = rhs._materias[i]->clone();
+			}
+		}
+	}
 	return *this;
 }
 
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
+
 
 void						MateriaSource::learnMateria(AMateria *m)
 {
-	if (this->_index < 4)
-	{
-		this->_materias[this->_index] = m->clone();
-		_index++;
-	}
-	else
-		delete m;
+	bool learned = false;
+    for (int i = 0; i < 4; i++)
+    {
+        if (!this->_materias[i])
+        {
+            this->_materias[i] = m;
+            learned = true;
+            break;
+        }
+    }
+    if (!learned)
+    {
+        std::cout << "There is no space for a more materia." << std::endl;
+    }
 }
 
 AMateria					*MateriaSource::createMateria(std::string const & type)
 {
-	for (int i = 0; i < this->_index; i++)
-	{
-		if (this->_materias[i]->getType() == type)
-			return this->_materias[i]->clone();
-	}
-	return 0;
+	AMateria *m;
+    if (type == "ice")
+    {
+        m = new Ice();
+    }
+    else
+    {
+        m = new Cure();
+    }
+    return (m);
 }

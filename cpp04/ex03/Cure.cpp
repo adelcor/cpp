@@ -1,8 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/28 13:38:21 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/11/29 13:50:50 by adel-cor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cure.hpp"
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
 
 Cure::Cure()
 {
@@ -16,32 +25,20 @@ Cure::Cure( const Cure & src )
 	*this = src;
 }
 
-
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
-
 Cure::~Cure()
 {
 	std::cout << "Cure Destroctor called" << std::endl;
 }
 
 
-/*
-** --------------------------------- OVERLOAD ---------------------------------
-*/
 
 Cure &				Cure::operator=( Cure const & rhs )
 {
 	std::cout << "Cure Assignation Operator called" << std::endl;
-	(void)rhs;
-	this->type = "cure";
+	this->type = rhs.type;
 	return *this;
 }
 
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
 
 AMateria			*Cure::clone() const
 {

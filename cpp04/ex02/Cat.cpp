@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/24 18:17:26 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/11/29 10:14:24 by adel-cor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cat.hpp"
 
 Cat::Cat(): Animal()
@@ -15,8 +27,16 @@ Cat::Cat(): Animal()
 
 Cat::Cat(const Cat &copy): Animal()
 {
-	std::cout << "Cat Copy Constructor called" <<std::endl;
-	*this = copy;
+    std::cout << "Cat Copy Constructor called" <<std::endl;
+    this->_type = copy._type;
+    this->_brain = new Brain();
+    if(this->_brain == NULL)
+    {
+        perror("Cat Brain allocation failed");
+        std::cerr << "Exiting the process now." << std::endl;
+        exit(1);
+    }
+    *this->_brain = *copy._brain;
 }
 
 Cat::~Cat()

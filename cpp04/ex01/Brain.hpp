@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/24 17:31:07 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/11/29 10:02:22 by adel-cor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
@@ -13,7 +25,7 @@ class Brain
 		Brain();
 		Brain(const Brain &copy);
 
-		virtual ~Brain();
+		virtual		~Brain();
 
 		Brain &operator=(const Brain &src);
 
