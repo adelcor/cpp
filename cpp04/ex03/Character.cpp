@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:34:02 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/29 14:15:30 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/30 08:57:34 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,12 +101,27 @@ void					Character::equip(AMateria *m)
 
 void					Character::unequip(int idx)
 {
+	if (!this->_materias[idx])
+	{
+		std::cout << "There is no Materia to unequip" << std::endl;
+	}
+	else
+	{
 	this->_materias[idx] = NULL;
+	}
 }
 
 void					Character::use(int idx, ICharacter& target)
 {
+	if(!this->_materias[idx] || idx > 4)
+	{
+		std::cout << idx << std::endl;
+		std::cout << "There is no Materia in slot" << std::endl;
+	}
+	else
+	{
 		this->_materias[idx]->use(target);
+	}
 }
 
 
