@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 12:09:08 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/29 14:09:10 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/30 09:08:07 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void						MateriaSource::learnMateria(AMateria *m)
     }
     if (!learned)
     {
-        std::cout << "There is no space for a more materia." << std::endl;
+        std::cout << "There is no space for more materia." << std::endl;
     }
 }
 
@@ -98,10 +98,13 @@ AMateria					*MateriaSource::createMateria(std::string const & type)
     if (type == "ice")
     {
         m = new Ice();
+		return m;
     }
-    else
+    else if (type == "cure")
     {
         m = new Cure();
+		return m;
     }
-    return (m);
+	else
+		return (0);
 }
