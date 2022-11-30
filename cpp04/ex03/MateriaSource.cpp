@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 12:09:08 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/30 09:08:07 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/30 09:38:20 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,12 @@ AMateria					*MateriaSource::createMateria(std::string const & type)
     }
 	else
 		return (0);
+
+	for (int i = 0; i < 4; i++)
+		{
+			if (this->_materias[i] && this->_materias[i]->getType() == type)
+				return this->_materias[i]->clone();
+		}	
+	return NULL;
+
 }

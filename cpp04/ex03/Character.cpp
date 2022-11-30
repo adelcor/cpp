@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:34:02 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/30 09:03:25 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/30 09:37:57 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void					Character::unequip(int idx)
 	}
 	else
 	{
-	this->_materias[idx] = NULL;
+		this->_materias[idx] = NULL;
 	}
 }
 
