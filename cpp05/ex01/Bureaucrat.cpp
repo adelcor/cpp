@@ -6,12 +6,12 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:57:12 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/30 11:53:29 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:36:53 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
+#include "Form.hpp"
 Bureaucrat::Bureaucrat(void):_name("default"), _grade(150)
 {
 	std::cout << "Bureaucrat Default Constructor called for " << this->getName() << "with grade of " << this->getGrade() << std::endl;
@@ -85,6 +85,11 @@ void Bureaucrat::setGrade(int grade)
 		throw Bureaucrat::GradeTooHighException();
 	else
 		this->_grade = grade;
+}
+
+void 	Bureaucrat::signForm(Form &form)
+{
+	form.beSigned(*this);
 }
 
 const char *Bureaucrat::GradeTooLowException::what(void) const throw()

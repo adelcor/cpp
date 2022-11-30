@@ -14,7 +14,7 @@ int main(void)
 		{
 		a->incrementGrade();
 		}
-		catch(Bureaucrat::GradeTooHighException &e) // the try-catch blocks inside the class are commented out but fully functional
+		catch(const std::exception &e) // the try-catch blocks inside the class are commented out but fully functional
 		{
 			std::cerr << "\033[33mIncrementing grade of " << a->getName() <<
 			" failed: " << e.what() << "\033[0m" << std::endl;
@@ -26,7 +26,7 @@ int main(void)
 		{
 		a->decrementGrade();
 		}
-		catch(Bureaucrat::GradeTooLowException &e)
+		catch(const std::exception &e)
 		{
 			std::cerr << "\033[33mDecrementing grade of " << a->getName() <<
 			" failed: " << e.what() << "\033[0m" << std::endl;
@@ -38,7 +38,7 @@ int main(void)
 		{
 		a->decrementGrade();
 		}
-		catch(Bureaucrat::GradeTooLowException &e)
+		catch(const std::exception &e)
 		{
 			std::cerr << "\033[33mDecrementing grade of " << a->getName() <<
 			" failed: " << e.what() << "\033[0m" << std::endl;
@@ -64,7 +64,7 @@ int main(void)
 		{
 		a->decrementGrade();
 		}
-		catch(Bureaucrat::GradeTooLowException &e)
+		catch(const std::exception &e)
 		{
 			std::cerr << "\033[33mDecrementing grade of " << a->getName() <<
 			" failed: " << e.what() << "\033[0m" << std::endl;
@@ -76,7 +76,7 @@ int main(void)
 		{
 		a->incrementGrade();
 		}
-		catch(Bureaucrat::GradeTooHighException &e)
+		catch(const std::exception &e)
 		{
 			std::cerr << "\033[33mIncrementing grade of " << a->getName() <<
 			" failed: " << e.what() << "\033[0m" << std::endl;
@@ -88,7 +88,7 @@ int main(void)
 		{
 		a->incrementGrade();
 		}
-		catch(Bureaucrat::GradeTooHighException &e)
+		catch(const std::exception &e)
 		{
 			std::cerr << "\033[33mIncrementing grade of " << a->getName() <<
 			" failed: " << e.what() << "\033[0m" << std::endl;
@@ -111,7 +111,7 @@ int main(void)
 		{
 			a = new Bureaucrat(0);
 		}
-		catch(Bureaucrat::GradeTooHighException &e)
+		catch(const std::exception &e)
 		{
 			std::cerr << "\033[33mConstructing default failed: " <<
 			e.what() << "\033[0m" << std::endl;
@@ -137,7 +137,7 @@ int main(void)
 		{
 			a = new Bureaucrat(160);
 		}
-		catch(Bureaucrat::GradeTooLowException &e)
+		catch(const std::exception &e)
 		{
 			std::cerr << "\033[33mConstructing default failed: " <<
 			e.what() << "\033[0m" << std::endl;
@@ -162,7 +162,7 @@ int main(void)
 		std::cout << a;
 
 		a->decrementGrade();
-
+		
 		std::cout << a;
 		std::cout << std::endl;
 

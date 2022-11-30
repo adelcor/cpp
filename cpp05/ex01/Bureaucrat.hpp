@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:56:59 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/30 11:48:27 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:37:03 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <string>
 #include <iostream>
+
+class Form;
 
 class Bureaucrat
 {
@@ -35,7 +37,7 @@ class Bureaucrat
 
 		void incrementGrade(void);
 		void decrementGrade(void);
-
+		void signForm(Form &form);
 		const std::string getName(void)const;
 		size_t getGrade(void)const;
 
