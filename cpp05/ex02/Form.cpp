@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:27:54 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/30 13:46:48 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/12/01 12:03:30 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ Form &Form::operator=(const Form &src)
 	if (this == &src)
 		return *this;
 
-	//nothing to assign in this class
 	return *this;
 }
 
@@ -90,6 +89,11 @@ void Form::beSigned(Bureaucrat &signer)
 	{
 		std::cerr << this->getName() << " Form cannot  *TEST* be signed by " << signer.getName() << " because " << e.what() << std::endl;
 	}
+}
+
+void Form::execute(Bureaucrat const &executor)const
+{
+	(void)executor;
 }
 
 const std::string	Form::getName(void)const
@@ -128,6 +132,11 @@ const char *Form::GradeTooLowException::what(void) const throw()
 const char *Form::GradeTooHighException::what(void) const throw()
 {
 	return ("Form exception: Grade too high");
+};
+
+const char *Form::FormNotSignedException::what(void) const throw()
+{
+	return ("Form needs to be signed before executing");
 };
 
 std::ostream	&operator<<(std::ostream &o, Form *a)
