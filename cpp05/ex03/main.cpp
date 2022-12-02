@@ -23,15 +23,9 @@ int main(void)
 		std::cout << b;
 		std::cout << std::endl;
 
-		try
-		{
+		
 			b->beSigned(*a);
 			// b->execute(*a);
-		}
-		catch(Bureaucrat::GradeTooLowException &e)
-		{
-			std::cerr << "\033[33m" << a->getName() << " was not able to sign " << b->getName() << ": " << e.what() << "\033[0m" << std::endl;
-		}
 
 		std::cout << std::endl;
 		std::cout << b;
@@ -61,72 +55,36 @@ int main(void)
 		std::cout << c;
 		std::cout << std::endl;
 
-		// Try to execute before signing
-		try
-		{
-			c->execute(*b);
-		}
-		catch (Form::FormNotSignedException &e)
-		{
-			std::cerr << "\033[33m" << a->getName() << " was not able to execute the Form " << c->getName() << ": " << e.what() << "\033[0m" << std::endl;
-		}
+	
+		c->execute(*b);
 		std::cout << std::endl;
-		// Assistant signs the Form
-		try
-		{
-			c->beSigned(*a);
-			// a->signForm(*c);
-		}
-		catch(Bureaucrat::GradeTooLowException &e)
-		{
-			std::cerr << "\033[33m" << a->getName() << " was not able to sign the Form " << c->getName() << ": " << e.what() << "\033[0m" << std::endl;
-		}
+		c->beSigned(*a);
+		// a->signForm(*c);
+		
 
-		// CEO signs the Form
+		
 		std::cout << std::endl;
 		std::cout << c;
 		std::cout << std::endl;
-		try
-		{
-			c->beSigned(*b);
-			// b->signForm(*c);
-		}
-		// catch(Form::GradeTooLowException &e)
-		catch(Bureaucrat::GradeTooLowException &e)
-		{
-			std::cerr << "\033[33m" << b->getName() << " was not able to sign the Form " << c->getName() << ": " << e.what() << "\033[0m" << std::endl;
-		}
+		c->beSigned(*b);
+		// b->signForm(*c);
+		
 		std::cout << std::endl;
 		std::cout << c;
 		std::cout << std::endl;
 
-		// try signing the from again
+		
 		std::cout << std::endl;
 		b->signForm(*c);
 		std::cout << std::endl;
-
-		// execute the Form from assistant
-		try
-		{
-			c->execute(*a);
-			// a.executeForm(*c);
-		}
-		catch(Bureaucrat::GradeTooLowException &e)
-		{
-			std::cerr << "\033[33m" << a->getName() << " was not able to execute the Form " << c->getName() << ": " << e.what() << "\033[0m" << std::endl;
-		}
+		
+		c->execute(*a);
+		// a.executeForm(*c);
 		std::cout << std::endl;
-
-		// execute Form from CEO
-		try
-		{
-			c->execute(*b);
-			// b.executeForm(*c);
-		}
-		catch(Bureaucrat::GradeTooLowException &e)
-		{
-			std::cerr << "\033[33m" << b->getName() << " was not able to execute the Form " << c->getName() << ": " << e.what() << "\033[0m" << std::endl;
-		}
+		
+		c->execute(*b);
+		// b.executeForm(*c);
+		
 		std::cout << std::endl;
 
 		std::cout << "\033[34mDeconstructing\033[0m" << std::endl;

@@ -1,3 +1,6 @@
+#ifndef ROBOTOMYREQUESTFORM_H
+#define ROBOTOMYREQUESTFORM_H
+
 #include <string>
 #include <iostream>
 #include <cstdlib>
@@ -36,3 +39,5 @@ class RobotomyRequestForm: public Form
 };
 
 std::ostream	&operator<<(std::ostream &o, RobotomyRequestForm *a);
+
+#endif
