@@ -46,7 +46,7 @@ int	Conversion::checkInput()
 {
 	if (this->getInput().compare("nan") == 0 || this->getInput().compare("+inf") == 0 ||
 		this->getInput().compare("-inf") == 0 || this->getInput().compare("+inff") == 0 ||
-		this->getInput().compare("-inff") == 0)
+		this->getInput().compare("-inff") == 0 || this->getInput().compare("nanf") == 0)
 	{
 		return (NAN_INF);
 	}
