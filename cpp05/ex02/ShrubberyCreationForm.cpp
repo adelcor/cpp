@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 09:03:13 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/12/01 12:47:22 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/12/05 18:33:00 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor)const
 		{
 			std::ofstream outfile (this->getTarget().append("_shrubbery").c_str());
 
-			for (int i = 0; i < 5; i++)
+			for (int i = 0; i < 2; i++)
 			{
 				outfile <<
 				"         v" << std::endl <<
@@ -86,7 +86,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor)const
 	}
 	    catch(const std::exception &e)
 		{
-			std::cerr << this->getName() << " Form cannot *christmastime* be executed by " << executor.getName() << " because " << e.what() << std::endl;
+			std::cerr << this->getName() << " Form cannot be executed by " << executor.getName() << " because " << e.what() << std::endl;
 		}
 
 }

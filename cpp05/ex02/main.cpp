@@ -31,14 +31,14 @@ int main(void)
 		delete b;
 		std::cout << std::endl;
 	}
-	std::cout << "--------------------------------------------------------------------------------------------------------------" << std::endl;
+	std::cout << "**42TEST42***" << std::endl;
 	{
 		std::cout << std::endl;
 
 		std::cout << "\033[34mConstructing\033[0m" << std::endl;
-		Bureaucrat *a = new Bureaucrat("Assistant", 145);
-		Bureaucrat *b = new Bureaucrat("CEO", 1);
-		Form *c = new PresidentialPardonForm("some dude");
+		Bureaucrat *a = new Bureaucrat("Junior Engineer", 145);
+		Bureaucrat *b = new Bureaucrat("Linus Torvalds", 1);
+		Form *c = new PresidentialPardonForm("Piscinero");
 		// Form *d = new Form(*c);
 		// Form *d = new Form("Rent Contract", 140, 100); // you are not able to construct an abstract class here
 		std::cout << std::endl;
@@ -82,13 +82,13 @@ int main(void)
 		delete c;
 		std::cout << std::endl;
 	}
-	std::cout << "--------------------------------------------------------------------------------------------------------------" << std::endl;
+	std::cout << "**42TEST42***" << std::endl;
 	{
 		std::cout << std::endl;
 
 		std::cout << "\033[34mConstructing\033[0m" << std::endl;
-		Bureaucrat *a = new Bureaucrat("Emperor", 1);
-		PresidentialPardonForm *b = new PresidentialPardonForm("this other dude");
+		Bureaucrat *a = new Bureaucrat("Putin", 1);
+		PresidentialPardonForm *b = new PresidentialPardonForm("dude");
 		PresidentialPardonForm *c = new PresidentialPardonForm(*b);
 		std::cout << std::endl;
 
@@ -109,14 +109,14 @@ int main(void)
 		delete c;
 		std::cout << std::endl;
 	}
-	std::cout << "--------------------------------------------------------------------------------------------------------------" << std::endl;
+	std::cout << "****TEST****" << std::endl;
 	{
 		std::cout << std::endl;
 
 		std::cout << "\033[34mConstructing\033[0m" << std::endl;
-		Bureaucrat *a = new Bureaucrat("Emperor", 1);
+		Bureaucrat *a = new Bureaucrat("Pallete", 1);
 		RobotomyRequestForm *b = new RobotomyRequestForm("Bender");
-		ShrubberyCreationForm *c = new ShrubberyCreationForm("christmas");
+		ShrubberyCreationForm *c = new ShrubberyCreationForm("coolforest");
 		std::cout << std::endl;
 
 		std::cout << "\033[34mTesting\033[0m" << std::endl;

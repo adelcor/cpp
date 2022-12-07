@@ -6,10 +6,12 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 10:01:33 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/12/01 11:27:55 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/12/05 18:33:47 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PRESIDENTIALPARDONFORM_H
+#define PRESIDENTIALPARDONFORM_H
 
 #include <string>
 #include <iostream>
@@ -44,3 +46,5 @@ class PresidentialPardonForm: public Form
 };
 
 std::ostream	&operator<<(std::ostream &o, PresidentialPardonForm *a);
+
+#endif

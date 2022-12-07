@@ -11,11 +11,11 @@ int main(void)
 		std::cout << "\033[34mConstructing\033[0m" << std::endl;
 		Bureaucrat *a = new Bureaucrat();
 		Intern *z = new Intern();
-		Form *b = z->makeForm("SomeRandomForm", "Clown");
+		Form *b = z->makeForm("RandomForm", "Clown");
 		b = z->makeForm("PresidentialPardonForm", "Clown");
 		// Form *b = new PresidentialPardonForm("Clown");
 		// Form *c = new RobotomyRequestForm("Bender");
-		// Form *d = new ShrubberyCreationForm("Christmas");
+		// Form *d = new ShrubberyCreationForm("coolforest");
 		std::cout << std::endl;
 
 		std::cout << "\033[34mTesting\033[0m" << std::endl;
@@ -37,14 +37,14 @@ int main(void)
 		delete z;
 		std::cout << std::endl;
 	}
-	std::cout << "--------------------------------------------------------------------------------------------------------------" << std::endl;
+	std::cout << "***TEST***" << std::endl;
 	{
 		std::cout << std::endl;
 
 		std::cout << "\033[34mConstructing\033[0m" << std::endl;
-		Bureaucrat *a = new Bureaucrat("Assistant", 145);
-		Bureaucrat *b = new Bureaucrat("CEO", 1);
-		Form *c = new PresidentialPardonForm("some dude");
+		Bureaucrat *a = new Bureaucrat("Pringado", 145);
+		Bureaucrat *b = new Bureaucrat("Capo", 1);
+		Form *c = new PresidentialPardonForm("Maleante");
 		// Form *d = new Form(*c);
 		// Form *d = new Form("Rent Contract", 140, 100); // you are not able to construct an abstract class here
 		std::cout << std::endl;
@@ -93,16 +93,16 @@ int main(void)
 		delete c;
 		std::cout << std::endl;
 	}
-	std::cout << "--------------------------------------------------------------------------------------------------------------" << std::endl;
+	std::cout << "***TEST***" << std::endl;
 	{
 		std::cout << std::endl;
 
 		std::cout << "\033[34mConstructing\033[0m" << std::endl;
-		Bureaucrat *a = new Bureaucrat("Emperor", 1);
+		Bureaucrat *a = new Bureaucrat("Megatron", 1);
 		Intern *z = new Intern();
 		Form *b = z->makeForm("RobotomyRequestForm", "Bender");
-		Form *c = z->makeForm("ShrubberyCreationForm", "Cristmas");
-		// Form *c = new ShrubberyCreationForm("christmas");
+		Form *c = z->makeForm("ShrubberyCreationForm", "Coolforest");
+		// Form *c = new ShrubberyCreationForm("Coolforest");
 		std::cout << std::endl;
 
 		std::cout << "\033[34mTesting\033[0m" << std::endl;

@@ -1,44 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   Seriatron.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:26:30 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/12/05 18:39:24 by adel-cor         ###   ########.fr       */
+/*   Created: 2022/12/07 18:21:58 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/12/07 18:22:00 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_H
-#define INTERN_H
+#ifndef SERIATRON_H
+
+#define SERIATRON_H
 
 #include <string>
 #include <iostream>
-#include "Form.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
 
-class Form;
-class PresidentialPardonForm;
-class RobotomyRequestForm;
-class ShrubberyCreationForm;
 
-class Intern
+typedef struct Data
+{
+	std::string	name;
+	size_t		age;
+	Data		*next;
+}				Data;
+
+class Seriatron
 {
 	private:
-
+		
 	public:
-		Intern();
-		Intern(const Intern &src);
+	
+		Seriatron();
+		Seriatron(const Seriatron &src);
+		
+		~Seriatron();
+		
+		Seriatron &operator=(const Seriatron &src);
+		
+		uintptr_t serialize(Data *ptr);
+		Data *unserialize(uintptr_t raw);
 
-		~Intern();
-
-		Intern &operator=(const Intern &src);
-
-		Form *makeForm(const std::string form, const std::string target);
-
+	class NoPointerException : public std::exception
+	{
+		public:
+			virtual const char *what() const throw();
+	};
 };
 
 #endif

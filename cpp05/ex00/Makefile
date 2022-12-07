@@ -1,11 +1,11 @@
-SRCS			= Convertron.cpp main.cpp
+SRCS			= Bureaucrat.cpp main.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= Convertron
+NAME			= Bureaucrat
 
 all:			$(NAME)
 

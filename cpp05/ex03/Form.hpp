@@ -6,11 +6,12 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:36:28 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/12/01 11:39:34 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/12/05 18:38:08 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma	once
+#ifndef FORM_H
+#define FORM_H
 
 #include <string>
 #include <iostream>
@@ -74,3 +75,6 @@ class Form
 
 
 std::ostream	&operator<<(std::ostream &o, Form *a);
+
+#endif
+

@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:37:36 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/11/30 13:37:42 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/12/05 18:00:16 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main(void)
 		delete b;
 		std::cout << std::endl;
 	}
-	std::cout << "-------------------------------------------------------" << std::endl;
+	std::cout << "*******" << std::endl;
 	{
 		std::cout << std::endl;
 
@@ -51,17 +51,17 @@ int main(void)
 		std::cout << b;
 		std::cout << c;
 
-		// Assistant signs the Form
-			// c->beSigned(*a);
-			a->signForm(*c);
+		
+		// c->beSigned(*a);
+		a->signForm(*c);
 
-		// CEO signs the Form
+		
 		std::cout << c;
 		//	c->beSigned(*b);
-			 b->signForm(*c);
+		b->signForm(*c);
 		std::cout << c;
 
-		// try signing the from again
+		
 		b->signForm(*c);
 		std::cout << std::endl;
 
@@ -71,7 +71,7 @@ int main(void)
 		delete c;
 		std::cout << std::endl;
 	}
-	std::cout << "-------------------------------------------------------" << std::endl;
+	std::cout << "**TEST***" << std::endl;
 	{
 		std::cout << std::endl;
 

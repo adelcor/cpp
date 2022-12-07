@@ -20,7 +20,7 @@ int main()
 	delete meta;
 	std::cout << std::endl;
 
-	std::cout << "-------------------------------------------------------" << std::endl;
+	std::cout << "*******" << std::endl;
 
 	std::cout << std::endl;
 	std::cout << "\033[34mConstructing\033[0m" << std::endl;
@@ -36,7 +36,7 @@ int main()
 	delete catto;
 	std::cout << std::endl;
 
-	std::cout << "-------------------------------------------------------" << std::endl;
+	std::cout << "*******" << std::endl;
 
 	std::cout << std::endl;
 	std::cout << "\033[34mConstructing\033[0m" << std::endl;
@@ -50,7 +50,7 @@ int main()
 	delete doggo;
 	std::cout << std::endl;
 
-	std::cout << "-------------------------------------------------------" << std::endl;
+	std::cout << "*******" << std::endl;
 
 	std::cout << std::endl;
 	std::cout << "\033[34mConstructing\033[0m" << std::endl;
@@ -66,7 +66,7 @@ int main()
 	delete wrong_meta;
 	std::cout << std::endl;
 
-	std::cout << "-------------------------------------------------------" << std::endl;
+	std::cout << "*******" << std::endl;
 
 	std::cout << "\033[34mConstructing\033[0m" << std::endl;
 	const WrongAnimal	*wrong_catto = new WrongCat();
@@ -81,7 +81,7 @@ int main()
 	delete wrong_catto;
 	std::cout << std::endl;
 
-	std::cout << "-------------------------------------------------------" << std::endl;
+	std::cout << "*******" << std::endl;
 
 	std::cout << "\033[34mConstructing\033[0m" << std::endl;
 	const WrongCat	*wrong_catta = new WrongCat();

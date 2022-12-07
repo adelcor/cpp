@@ -1,4 +1,16 @@
-#include "Conversion.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/07 18:20:58 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/12/07 18:21:00 by adel-cor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Convertron.hpp"
 
 int main(int argc, char **argv)
 {
@@ -9,17 +21,17 @@ int main(int argc, char **argv)
 	}
 	try
 	{
-		Conversion conversion(argv[1]);
+		Convertron conversion(argv[1]);
 		// try
 		// {
-		// 	Conversion copy(conversion);
+		// 	Convertron copy(conversion);
 		// }
 		// catch(const std::exception& e)
 		// {
 		// 	std::cerr << e.what() << std::endl;
 		// }
 	}
-	catch(const Conversion::ErrorException& e)
+	catch(const Convertron::ErrorException& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}

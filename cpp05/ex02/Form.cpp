@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:27:54 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/12/01 12:03:30 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/12/05 18:32:32 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void Form::beSigned(Bureaucrat &signer)
 	}
 	catch(const	std::exception &e)
 	{
-		std::cerr << this->getName() << " Form cannot  *TEST* be signed by " << signer.getName() << " because " << e.what() << std::endl;
+		std::cerr << this->getName() << " Form cannot be signed by " << signer.getName() << " because " << e.what() << std::endl;
 	}
 }
 

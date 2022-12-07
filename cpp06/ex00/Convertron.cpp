@@ -1,35 +1,47 @@
-#include "Conversion.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Convertron.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/07 18:20:16 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/12/07 18:20:34 by adel-cor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-Conversion::Conversion()
+#include "Convertron.hpp"
+
+Convertron::Convertron()
 {
-	std::cout << "Conversion Default Constructor called" << std::endl;
+	std::cout << "Convertron Default Constructor called" << std::endl;
 }
 
-Conversion::Conversion(const std::string input): _input(input)
+Convertron::Convertron(const std::string input): _input(input)
 {
-	std::cout << "Conversion Constructor for " << this->getInput() << std::endl;
+	std::cout << "Convertron Constructor for " << this->getInput() << std::endl;
 	this->_double = atof(this->getInput().c_str());
 	this->convertInput();
 	this->printOutput();
 }
 
-Conversion::Conversion(const Conversion &src): _input(src.getInput())
+Convertron::Convertron(const Convertron &src): _input(src.getInput())
 {
-	std::cout << "Conversion Copy Constructor called" << std::endl;
+	std::cout << "Convertron Copy Constructor called" << std::endl;
 	*this = src;
 	this->printOutput();
 }
 
 
-Conversion::~Conversion()
+Convertron::~Convertron()
 {
-	std::cout << "Conversion Deconstructor called" << std::endl;
+	std::cout << "Convertron Deconstructor called" << std::endl;
 }
 
 
-Conversion &Conversion::operator=(const Conversion &src)
+Convertron &Convertron::operator=(const Convertron &src)
 {
-	std::cout << "Conversion Assignation operator called" << std::endl;
+	std::cout << "Convertron Assignation operator called" << std::endl;
 	if (this == &src)
 		return *this;
 
@@ -42,7 +54,7 @@ Conversion &Conversion::operator=(const Conversion &src)
 }
 
 // Private Methods
-int	Conversion::checkInput()
+int	Convertron::checkInput()
 {
 	if (this->getInput().compare("nan") == 0 || this->getInput().compare("+inf") == 0 ||
 		this->getInput().compare("-inf") == 0 || this->getInput().compare("+inff") == 0 ||
@@ -64,7 +76,7 @@ int	Conversion::checkInput()
 		(this->getInput()[0] == '+' || this->getInput()[0] == '-' || // prevents that the input of single digit integers get interpreted as a char
 		this->getInput()[0] == 'f' || this->getInput()[0] == '.'))
 	{
-		return (CHAR);
+
 	}
 	else if (this->getInput().find_first_of("+-") != this->getInput().find_last_of("+-")) // catches any multiple or mixed use of + and -
 		return (ERROR);
@@ -99,35 +111,35 @@ int	Conversion::checkInput()
 		return (ERROR);
 }
 
-void Conversion::fromChar(void)
+void Convertron::fromChar(void)
 {
 	this->_char = static_cast<unsigned char>(this->getInput()[0]);
 	this->_int = static_cast<int>(this->getChar());
 	this->_float = static_cast<float>(this->getChar());
 	this->_double = static_cast<double>(this->getChar());
 }
-void Conversion::fromInt(void)
+void Convertron::fromInt(void)
 {
 	this->_int = static_cast<int>(this->getDouble());
 	this->_char = static_cast<unsigned char>(this->getInt());
 	this->_float = static_cast<float>(this->getDouble());
 }
-void Conversion::fromFloat(void)
+void Convertron::fromFloat(void)
 {
 	this->_float = static_cast<float>(this->getDouble());
 	this->_char = static_cast<char>(this->getFloat());
 	this->_int = static_cast<int>(this->getFloat());
 }
-void Conversion::fromDouble(void)
+void Convertron::fromDouble(void)
 {
 	this->_char = static_cast<char>(this->getDouble());
 	this->_int = static_cast<int>(this->getDouble());
 	this->_float = static_cast<float>(this->getDouble());
 }
 
-void	Conversion::convertInput(void)
+void	Convertron::convertInput(void)
 {
-	void (Conversion::*functionPTRS[])(void) = {&Conversion::fromChar, &Conversion::fromInt, &Conversion::fromFloat, &Conversion::fromDouble};
+	void (Convertron::*functionPTRS[])(void) = {&Convertron::fromChar, &Convertron::fromInt, &Convertron::fromFloat, &Convertron::fromDouble};
 	int types[] = {CHAR, INT, FLOAT, DOUBLE};
 
 	this->_type = checkInput();
@@ -144,12 +156,12 @@ void	Conversion::convertInput(void)
 		}
 	}
 	if (i == 4)
-		throw Conversion::ErrorException();
+		throw Convertron::ErrorException();
 }
 
-void	Conversion::printOutput(void)const
+void	Convertron::printOutput(void)const
 {
-	// display char
+	
 	if (this->getType() != NAN_INF && this->getDouble() <= UCHAR_MAX && this->getDouble() >= 0)
 	{
 		if (isprint(this->getChar()))
@@ -160,7 +172,7 @@ void	Conversion::printOutput(void)const
 	else
 		std::cout << "char: impossible" << std::endl;
 
-	// display int
+	
 	if (this->getType() != NAN_INF && this->getDouble() >= std::numeric_limits<int>::min() && this->getDouble() <= std::numeric_limits<int>::max())
 	{
 		std::cout << "int: " << this->getInt() << std::endl;
@@ -168,7 +180,7 @@ void	Conversion::printOutput(void)const
 	else
 		std::cout << "int: impossible" << std::endl;
 
-	// display float
+	
 	if (this->getType() != NAN_INF)
 	{
 		std::cout << "float: " << this->getFloat();
@@ -187,7 +199,7 @@ void	Conversion::printOutput(void)const
 			std::cout << "float: -inff" << std::endl;
 	}
 
-	// display double
+	
 	if (this->getType() != NAN_INF)
 	{
 		std::cout << "double: " << this->getDouble();
@@ -210,39 +222,39 @@ void	Conversion::printOutput(void)const
 	}
 }
 
-// Exceptions
-const char *Conversion::ErrorException::what(void) const throw()
+
+const char *Convertron::ErrorException::what(void) const throw()
 {
 	return ("Error: Impossible to print or input not convertable");
 };
 
-// Getter
-std::string	Conversion::getInput(void)const
+
+std::string	Convertron::getInput(void)const
 {
 	return (this->_input);
 }
 
-int	Conversion::getType(void)const
+int	Convertron::getType(void)const
 {
 	return (this->_type);
 }
 
-char	Conversion::getChar(void)const
+char	Convertron::getChar(void)const
 {
 	return (this->_char);
 }
 
-int	Conversion::getInt(void)const
+int	Convertron::getInt(void)const
 {
 	return (this->_int);
 }
 
-float	Conversion::getFloat(void)const
+float	Convertron::getFloat(void)const
 {
 	return (this->_float);
 }
 
-double Conversion::getDouble(void)const
+double Convertron::getDouble(void)const
 {
 	return (this->_double);
 }

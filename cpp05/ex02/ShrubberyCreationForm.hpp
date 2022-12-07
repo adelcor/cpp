@@ -1,3 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/05 18:10:58 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/12/05 18:14:19 by adel-cor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef	SHRUBBERYCREATIONFORM_H
+#define SHRUBBERYCREATIONFORM_H
+
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -31,3 +46,5 @@ class ShrubberyCreationForm: public Form
 };
 
 std::ostream	&operator<<(std::ostream &o, ShrubberyCreationForm *a);
+
+#endif

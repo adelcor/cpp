@@ -1,4 +1,4 @@
-SRCS			= Convertron.cpp main.cpp
+SRCS			= Seriatron.cpp main.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
