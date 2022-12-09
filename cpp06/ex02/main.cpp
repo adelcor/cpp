@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 09:55:15 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/12/08 14:02:05 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/12/09 12:27:34 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <cstdio>
 #include <iostream>
 
-/*static Base *generate(void)
+static Base *generate(void)
 {
 	switch (rand() % 3)
 	{
@@ -36,7 +36,7 @@
 			perror("Random generator failure");
 			return(NULL);
 	}
-}*/
+}
 
 static void identify (Base *Test)
 {
@@ -54,9 +54,10 @@ static void identify (Base *Test)
 
 static void identify (Base &Test)
 {
-	
-	Base *Bastion = NULL;
-	if(&Test == Bastion)
+	uintptr_t Bastion;
+	Bastion = reinterpret_cast<uintptr_t>(&Test);
+
+	if(Bastion == 0)
 	{
 		std::cout << "Reference is NULL" << std::endl;
 		exit(0);
@@ -105,7 +106,7 @@ static void identify (Base &Test)
 int main(void)
 {
 	srand(time(NULL));
-	Base *basePtr =  NULL; //generate();
+	Base *basePtr =  generate();
 	Base & baseRef = *basePtr;
 	identify(basePtr);
 	identify(baseRef);
