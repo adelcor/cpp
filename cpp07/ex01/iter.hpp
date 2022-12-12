@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 17:13:41 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/12/12 17:59:19 by adel-cor         ###   ########.fr       */
+/*   Created: 2022/12/12 17:59:45 by adel-cor          #+#    #+#             */
+/*   Updated: 2022/12/12 18:04:03 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_H
-#define WHATEVER_H
+#ifndef ITER_H
+#define ITER_H
 
-template <typename T>
+#include <string>
 
-const T &max(const T &x, const T &y)
+template < typename T >
+
+void	iter( T *array, size_t len, void(*f)(T &))
 {
-	return(x >= y ? x : y);
+	if(array == NULL || f == NULL)
+		return;
+	for(size_t i = 0 i < len; i++)
+		f(array[i]);
 }
-
-template <typename C>
-
-const C &min(const C &x, const C &y)
-{
-		return(x <= y ? x : y);
-}
-
-template <typename M>
-
-void swap(M &x, M &y)
-{
-	M temp = x;
-	x = y;
-	y = temp;
-}
-#endif
 
