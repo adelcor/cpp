@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 18:20:16 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/12/07 18:20:34 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:47:09 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ Convertron &Convertron::operator=(const Convertron &src)
 	return *this;
 }
 
-// Private Methods
+
 int	Convertron::checkInput()
 {
 	if (this->getInput().compare("nan") == 0 || this->getInput().compare("+inf") == 0 ||
@@ -64,7 +64,6 @@ int	Convertron::checkInput()
 	}
 	else if (this->getInput().length() > 1 && this->getInput().find('-') != std::string::npos && this->getInput().find('-') != 0)
 	{
-		std::cout << "find es " << this->getInput().find('-') << std::endl;
 		return(ERROR);
 	}
 	else if (this->getInput().length() > 1 && this->getInput().find('+') != std::string::npos && this->getInput().find('+') != 0)
@@ -73,31 +72,31 @@ int	Convertron::checkInput()
 	}
 
 	else if (this->getInput().length() == 1 &&
-		(this->getInput()[0] == '+' || this->getInput()[0] == '-' || // prevents that the input of single digit integers get interpreted as a char
+		(this->getInput()[0] == '+' || this->getInput()[0] == '-' ||
 		this->getInput()[0] == 'f' || this->getInput()[0] == '.'))
 	{
-
+		return(CHAR);
 	}
-	else if (this->getInput().find_first_of("+-") != this->getInput().find_last_of("+-")) // catches any multiple or mixed use of + and -
+	else if (this->getInput().find_first_of("+-") != this->getInput().find_last_of("+-"))
 		return (ERROR);
 	else if (this->getInput().find_first_not_of("+-0123456789") == std::string::npos)
 		return (INT);
 	else if (this->getInput().find_first_not_of("+-0123456789.") == std::string::npos)
 	{
-		if (this->getInput().find_first_of(".") != this->getInput().find_last_of(".") || // catches `0..0`
-			isdigit(this->getInput()[this->getInput().find_first_of(".") + 1]) == false || // catches `0.`
-			this->getInput().find_first_of(".") == 0) // catches `.0`
+		if (this->getInput().find_first_of(".") != this->getInput().find_last_of(".") || 
+			isdigit(this->getInput()[this->getInput().find_first_of(".") + 1]) == false || 
+			this->getInput().find_first_of(".") == 0) 
 			return (ERROR);
 		else
 			return (DOUBLE);
 	}
 	else if (this->getInput().find_first_not_of("+-0123456789.f") == std::string::npos)
 	{
-		if (this->getInput().find_first_of("f") != this->getInput().find_last_of("f") || // catches `0.0ff`
-			this->getInput().find_first_of(".") != this->getInput().find_last_of(".") || // catches `0..0f`
-			this->getInput().find_first_of("f") - this->getInput().find_first_of(".") == 1 || //catches `0.f`
-			this->getInput().find_first_of(".") == 0 || // catches `.0f`
-			this->getInput()[this->getInput().find_first_of("f") + 1] != '\0') // catches `0.0f0`
+		if (this->getInput().find_first_of("f") != this->getInput().find_last_of("f") || 
+			this->getInput().find_first_of(".") != this->getInput().find_last_of(".") || 
+			this->getInput().find_first_of("f") - this->getInput().find_first_of(".") == 1 || 
+			this->getInput().find_first_of(".") == 0 || 
+			this->getInput()[this->getInput().find_first_of("f") + 1] != '\0') 
 			return (ERROR);
 		else
 			return (FLOAT);

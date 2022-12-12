@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 18:20:58 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/12/07 18:21:00 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:46:38 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,6 @@ int main(int argc, char **argv)
 	try
 	{
 		Convertron conversion(argv[1]);
-		// try
-		// {
-		// 	Convertron copy(conversion);
-		// }
-		// catch(const std::exception& e)
-		// {
-		// 	std::cerr << e.what() << std::endl;
-		// }
 	}
 	catch(const Convertron::ErrorException& e)
 	{
