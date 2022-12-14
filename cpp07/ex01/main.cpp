@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 18:48:57 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/12/13 14:52:20 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/12/14 11:49:53 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,50 @@
 
 #include <iostream>
 
-void ft_print(char &arr)
+template<typename T>
+
+void print( T &a )
 {
-	std::cout << arr << std::endl;
+	std::cout << "Variable's value is: " << a << std::endl;
 }
 
-void ft_to_lower(char &arr)
+void	Random( int &number )
 {
-	arr = std::tolower(static_cast<unsigned char>(arr));
+	number = std::rand() % 100;
 }
 
-void ft_to_upper(char &arr)
-{
-	arr = std::toupper(static_cast<unsigned char>(arr));
-}
+ class Awsome
+ {
+
+ public:
+     Awsome(void): _n(42) {return;}
+     int get(void)const {return this->_n;}
+ private:
+     int _n;
+ };
+
+std::ostream &operator<<(std::ostream &o, Awsome const &rhs) {o<<rhs.get(); return o;}
 
 int main(void)
 {
-	char a[] = {'A', 'B', 'C'};
+	int tab[] = {0,1,2,3,4};
+    Awsome tab2[5];
+	
+	iter(tab, 5, print);
+	iter(tab2, 5, print);
 
-	iter(a, 3, ft_print);
-	iter(a, 3, ft_to_lower);
-	iter(a, 3, ft_print);
-	iter(a, 3, ft_to_upper);
-	iter(a, 3, ft_print);
+	std::cout << "TEST----------------------------------TEST" << std::endl;
+	
+	std::string strTable[3];
+    int         *intTable = new int[5];
+
+    strTable[0] = "Data";
+    strTable[1] = "Hey";
+    strTable[2] = "Hou";
+    ::iter(strTable, 3, &print);
+    for (int i = 0; i < 5; i ++)
+        Random(intTable[i]);
+    ::iter(intTable, 5, &print);
+	
 	return(0);
-}
-
+ }
