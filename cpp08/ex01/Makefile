@@ -1,11 +1,11 @@
-SRCS			= main.cpp
+SRCS			= main.cpp Span.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= EasyFind
+NAME			= Span
 
 all:			$(NAME)
 
