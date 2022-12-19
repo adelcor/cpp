@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <climits>
 
 int main()
 {
 	{
-		Span a = Span(2);
-		for (size_t i = 1; i < 2; i++)
+		Span a = Span(6);
+		for (size_t i = 1; i < 5; i++)
 		{
 			try
 			{
@@ -38,7 +39,7 @@ int main()
 		}
 	}
 
-	Span b = NULL;
+	Span b = Span(2);
 
 	try
 	{

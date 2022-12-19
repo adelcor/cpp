@@ -1,4 +1,4 @@
-SRCS			= main.cpp span.cpp
+SRCS			= main.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
