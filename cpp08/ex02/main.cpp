@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 19:10:51 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/12/19 19:26:50 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/12/19 19:33:39 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,13 @@ int main(){
     std::cout << "MUTANTSTACK" << std::endl;
 
     MutantStack<int>    mstack;
-
+	MutantStack<int>	mstack2;
+	
+	mstack2.push(42);
+	mstack2.push(84);
     mstack.push(5);
     mstack.push(99);
+	mstack.swap(mstack2);
 
 	std::cout << "SIZE : " << mstack.size() << std::endl;
 
