@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:28:18 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/12/14 11:54:14 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/12/19 15:22:16 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int main(void)
         full[1] = 12;
         full[2] = 6;
 		full[3] = 3;
-       
+
+       	std::cout << full[0] << std::endl;
         std::cout << full[2] << std::endl;
         std::cout << full[12] << std::endl;
 		std::cout << full[43] << std::endl;
