@@ -13,6 +13,25 @@
 #include "whatever.hpp"
 #include <iostream>
 
+class Awesome
+{
+public:
+	Awesome( int n ) : _n( n ) {}
+	bool operator==( Awesome const & rhs ) const { return (this->_n == rhs._n); }
+	bool operator!=( Awesome const & rhs ) const { return (this->_n != rhs._n); }
+	bool operator>( Awesome const & rhs ) const { return (this->_n > rhs._n); }
+	bool operator<( Awesome const & rhs ) const { return (this->_n < rhs._n); }
+	bool operator>=( Awesome const & rhs ) const { return (this->_n >= rhs._n); }
+	bool operator<=( Awesome const & rhs ) const { return (this->_n <= rhs._n); }
+	int getN() const {return this->_n;}
+private:
+	int _n;
+};
+
+std::ostream & operator<<(std::ostream & o, Awesome const & awesome) {
+	return o << awesome.getN();}
+
+
 int	main()
 {
 
@@ -51,6 +70,20 @@ int	main()
 	::swap(a, b);
 	std::cout << "after:\n\ta: " << a << "\n\tb: " << b << std::endl;
 	}
+	std::cout << std::endl << "**TEST**TEST**TEST**TEST**TEST**TEST" << std::endl;
+
+	{
+	Awesome IronMan = Awesome(2);
+	Awesome Hulk = Awesome(3);
+	std::cout << "IronMan = " << IronMan << std::endl;
+	std::cout << "Hulk = " << Hulk << std::endl;
+	::swap(IronMan , Hulk);
+	std::cout << "IronMan = " << IronMan << std::endl;
+	std::cout << "Hulk = "	<< Hulk << std::endl;
+	std::cout << "min( IronMan, Hulk ) = " << ::min( IronMan, Hulk ) << std::endl;
+	std::cout << "max( IronMan, Hulk ) = " << ::max( IronMan, Hulk ) << std::endl;
+	}
+
 
 	
 
