@@ -1,4 +1,4 @@
-SRCS			= main.cpp Span.cpp
+SRCS			= main.cpp mutantstack.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++

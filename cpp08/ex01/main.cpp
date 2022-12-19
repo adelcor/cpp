@@ -6,7 +6,7 @@
 /*   By: adel-cor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 12:15:48 by adel-cor          #+#    #+#             */
-/*   Updated: 2022/12/16 14:23:28 by adel-cor         ###   ########.fr       */
+/*   Updated: 2022/12/19 18:09:53 by adel-cor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 int main()
 {
 	{
-		Span a = Span(6);
-		for (size_t i = 1; i < 5; i++)
+		Span a = Span(19);
+		for (size_t i = 1; i < 18; i++)
 		{
 			try
 			{
@@ -39,7 +39,7 @@ int main()
 		}
 	}
 
-	Span b = Span(2);
+	Span b = NULL;
 
 	try
 	{
@@ -60,5 +60,16 @@ int main()
 		std::cout << "shortest span is " << a.shortestSpan() << std::endl;
 		std::cout << "longest span is " << a.longestSpan() << std::endl << std::endl;
 	}
+
+	std::cout << "**TEST**TEST**TEST**TEST**TEST***TEST" << std::endl;
+
+	Span sp = Span(5);
+	sp.addNumber(5);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
 	return (0);
 }
