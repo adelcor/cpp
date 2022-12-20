@@ -16,7 +16,7 @@
 int main()
 {
 	{
-		Span a = Span(19);
+		Span a = Span(10);
 		for (size_t i = 1; i < 18; i++)
 		{
 			try
@@ -39,7 +39,7 @@ int main()
 		}
 	}
 
-	Span b = NULL;
+	Span b = (12);
 
 	try
 	{

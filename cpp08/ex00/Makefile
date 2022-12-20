@@ -5,7 +5,7 @@ CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= Span
+NAME			= EasyFind
 
 all:			$(NAME)
 
