@@ -43,25 +43,58 @@ void	BitcoinExchange::init_database(const char* filename )
 	
 	database.close();
 
-	if(database.fail())
+	if(database.is_open())
 		throw std::exception();
 	else
 		std::cout << "database is closed correctly\n";
 }
 
-void BitcoinExchange::exec(const char* filename)
+void	BitcoinExchange::parse_input(std::ifstream &input)
+{
+	std::string buffer;
+	std::getline(input, buffer);
+	std::cout << "la segunda linea es: " << buffer << std::endl;
+}
+
+void	BitcoinExchange::init_input(const char *filename)
+{
+	std::ifstream	input(filename);
+	if(input.good())
+		std::cout << "input data file open correctly" << std::endl;
+	else
+	{
+		std::cerr << "input data file cannot be opened correctly or does not exist" << std::endl;
+		throw std::exception();
+	}
+
+	std::string first_line;
+	std::getline(input, first_line);
+	std::cout << first_line << std::endl;
+	if(first_line.compare("date | value"))
+	{
+		std::cerr << "Error in format: First line has to be 'date | value'" << std::endl;
+		throw std::exception();
+	}
+	parse_input(input);
+
+
+}
+
+
+
+void 	BitcoinExchange::exec(const char* filename)
 {
 	if(filename)
 	{
-		this->init_database("data.csv");
 		this->init_input(filename);
+		this->init_database("data.csv");
 	}
 	else
 		exit(0);
 
 }
 
-void BitcoinExchange::get_map()
+void 	BitcoinExchange::print_map()
 {
 	std::map<std::string, float>::iterator it;
 
@@ -72,6 +105,11 @@ void BitcoinExchange::get_map()
 		std::cout << key << ": " << value << std::endl;
 	}
 
+}
+
+std::map<std::string, float>	BitcoinExchange::get_map()
+{
+	return this->_map;
 }
 
 

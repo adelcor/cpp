@@ -3,7 +3,7 @@
 int main(int, char **argv)
 {
 	
-
+	std::map<std::string, float> mapa;
 	BitcoinExchange test;
 	try
 	{
@@ -13,7 +13,7 @@ int main(int, char **argv)
 	{
 		std::cout << "Error " << e.what() << std::endl;
 	}
-//	test.get_map();
+//	mapa = test.get_map();
 
 //	for(auto const& pair : test._map)
 //	{
