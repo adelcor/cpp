@@ -1,7 +1,12 @@
 #include "BitcoinExchange.cpp"
 
-int main(int, char **argv)
+int main(int argc, char **argv)
 {
+	if(argc != 2)
+	{
+		std::cout << "the program needs one argument\n";
+		return(0);
+	}
 	
 	std::map<std::string, float> mapa;
 	BitcoinExchange test;

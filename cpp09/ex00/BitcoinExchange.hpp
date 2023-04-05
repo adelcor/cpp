@@ -23,6 +23,9 @@ class	BitcoinExchange
 		void	print_map();
 		std::map<std::string, float> get_map();
 		void	parse_input(std::ifstream& input);
+		bool	vali_date(const std::string& date);
+		float	valid_float(const std::string& value);
+		bool	has_thirty_days(int month);
 	
 };
 
