@@ -9,7 +9,9 @@
 class	BitcoinExchange
 {
 	private:
-		std::map<std::string, float>	_map;		
+		std::map<std::string, float>	_map;	
+		float				_rate;
+		bool				_valid;	
 	
 	public:
 		BitcoinExchange();
@@ -26,6 +28,7 @@ class	BitcoinExchange
 		bool	vali_date(const std::string& date);
 		float	valid_float(const std::string& value);
 		bool	has_thirty_days(int month);
+		void	find_rate(std::string& date);
 	
 };
 

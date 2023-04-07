@@ -61,29 +61,52 @@ void	BitcoinExchange::parse_input(std::ifstream &input)
 		std::string		value;
 		char 			splitter;
 		float			number;
+		double			bitcoin_value;
+
 
 		if(!(line_parser >> date >> splitter >> value) || splitter != '|')
+		{
 			std::cout << "Error: bad input => " << date << std::endl;
-		else if(!vali_date(date))
-			std::cout << "Error: bad input => " << date << std::endl;
+			continue;
+		}
 
 		number = valid_float(value);
+			
 
-		if(number > 1000)
+		if(!vali_date(date))
+			std::cout << "Error: bad input => " << date << std::endl;
+
+
+		else if(number < 0)
+			std::cout << "Error: not a positive number." << std::endl;
+
+		else if(number > 1000)
 			std::cout << "Error: too large a number." << std::endl;
 
+		else if(number < 1000 && number > 0)
+		{
+			find_rate(date);
+			if(this->_valid)
+			{
+				bitcoin_value = number * this->_rate;
+				std::cout << date << " => " << number << " = " << bitcoin_value << std::endl;
+			}
 
 
-		
-
-		
+		}
+		else
+			std::cout << "Error: bad input => " << date << std::endl;
 	}
-
 }
+
+
+
 
 void	BitcoinExchange::init_input(const char *filename)
 {
 	std::ifstream	input(filename);
+	std::string	first_line;
+
 	if(input.good())
 		std::cout << "input data file open correctly" << std::endl;
 	else
@@ -92,17 +115,19 @@ void	BitcoinExchange::init_input(const char *filename)
 		throw std::exception();
 	}
 
-	std::string first_line;
+
 	std::getline(input, first_line);
+
 	std::cout << first_line << std::endl;
+
 	if(first_line.compare("date | value"))
 	{
 		std::cerr << "Error in format: First line has to be 'date | value'" << std::endl;
 		throw std::exception();
 	}
+
 	parse_input(input);
-
-
+	input.close();
 }
 
 
@@ -111,8 +136,8 @@ void 	BitcoinExchange::exec(const char* filename)
 {
 	if(filename)
 	{
-		this->init_input(filename);
 		this->init_database("data.csv");
+		this->init_input(filename);
 	}
 	else
 		exit(0);
@@ -192,11 +217,67 @@ float	BitcoinExchange::valid_float(const std::string& value)
 	float	num;
 	
 	std::stringstream ss(value);
+	std::cout << "value es: " << value << std::endl;
 
 	ss >> num;
+	std::cout << "number es :" << num << std::endl;
 
 	return(num);
 }
+
+
+/*
+void	BitcoinExchange::find_rate(std::string& date)
+{
+	std::string result = this->_map.lower_bound(date)->first;
+	if(result == date)
+		std::cout << result << std::endl;
+	else
+	{
+		result = lower_bound--
+	}
+	
+}*/
+
+void	BitcoinExchange::find_rate(std::string& date) 
+{
+    std::map<std::string, float>::iterator it = this->_map.lower_bound(date);
+    std::string result = it->first;
+    this->_valid = true;	
+
+    if (result.compare(date) == 0) 
+    {
+	    this->_rate = it->second;
+	    std::cout << "rate es : " << this->_rate << std::endl;
+    }
+    
+    else 
+    {
+        if (it != this->_map.begin()) 
+	{ 
+		--it;
+		result = it->first;
+		if(vali_date(result))
+		{
+			this->_rate = it->second;
+			std::cout << "rate es : " << this->_rate << std::endl;
+		}
+
+		else
+		{
+			std::cout << "Error: Bad Input => " << result << std::endl;
+			this->_valid = false;
+		}
+	}
+    	
+	else 
+	{
+		std::cout << "A rate was not found for the specified date" << std::endl;
+		this->_valid = false;
+	}
+    }
+}
+
 
 
 
