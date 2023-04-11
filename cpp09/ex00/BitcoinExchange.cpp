@@ -37,7 +37,7 @@ void	BitcoinExchange::init_database(const char* filename )
 		std::string rate;
 		std::getline(line_stream, date, ',');
 		std::getline(line_stream, rate, ',');
-		this->_map[date] = std::stod(rate);
+		this->_map[date] = valid_float(rate);
 	}
 	
 	database.close();
@@ -144,7 +144,9 @@ void 	BitcoinExchange::exec(const char* filename)
 		this->init_input(filename);
 	}
 	else
-		exit(0);
+	{	std::cerr << "Error in filename" << std::endl;
+		throw std::exception();
+	}
 
 }
 
@@ -249,7 +251,7 @@ void	BitcoinExchange::find_rate(std::string& date)
     	if(it == this->_map.end())
 	{
 		last = true;
-		it = std::prev(it);
+		--it;
 	}
 
 	std::string result = it->first;
