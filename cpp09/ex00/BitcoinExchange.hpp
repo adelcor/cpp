@@ -4,6 +4,10 @@
 #include <iostream>
 #include <map>
 #include <sstream>
+#include <fstream>
+#define RESET_COLOR "\033[0m"
+#define YELLOW_COLOR "\033[33m"
+#define CYAN_COLOR "\033[36m"
 
 
 class	BitcoinExchange
@@ -29,6 +33,8 @@ class	BitcoinExchange
 		float	valid_float(const std::string& value);
 		bool	has_thirty_days(int month);
 		void	find_rate(std::string& date);
+		bool	get_valid();
+		float	get_rate();
 	
 };
 

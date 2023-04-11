@@ -1,4 +1,4 @@
-#include "BitcoinExchange.cpp"
+#include "BitcoinExchange.hpp"
 
 int main(int argc, char **argv)
 {
@@ -8,22 +8,16 @@ int main(int argc, char **argv)
 		return(0);
 	}
 	
-	std::map<std::string, float> mapa;
-	BitcoinExchange test;
+	BitcoinExchange BitCoin;
+
 	try
 	{
-	test.exec(argv[1]);
+	BitCoin.exec(argv[1]);
 	}
 	catch(std::exception& e)
 	{
 		std::cout << "Error " << e.what() << std::endl;
 	}
-//	mapa = test.get_map();
-
-//	for(auto const& pair : test._map)
-//	{
-//		std::cout << pair.first << ": " << pair.second << std::endl;
-//	}
 
 	return(0);
 }

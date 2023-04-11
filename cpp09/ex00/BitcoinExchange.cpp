@@ -1,5 +1,4 @@
 #include "BitcoinExchange.hpp"
-#include <fstream>
 
 BitcoinExchange::BitcoinExchange()
 {
@@ -25,7 +24,7 @@ void	BitcoinExchange::init_database(const char* filename )
 	std::string	buffer;
 
 	if(database.is_open())
-		std::cout << "database is open correctly\n";
+		std::cout << CYAN_COLOR << "\nDatabase is open correctly\n" << RESET_COLOR << std::endl;
 	else
 		throw std::exception();
 
@@ -46,7 +45,7 @@ void	BitcoinExchange::init_database(const char* filename )
 	if(database.is_open())
 		throw std::exception();
 	else
-		std::cout << "database is closed correctly\n";
+		std::cout << CYAN_COLOR << "Database is closed correctly\n" << CYAN_COLOR << std::endl;
 }
 
 void	BitcoinExchange::parse_input(std::ifstream &input)
@@ -108,17 +107,17 @@ void	BitcoinExchange::init_input(const char *filename)
 	std::string	first_line;
 
 	if(input.good())
-		std::cout << "input data file open correctly" << std::endl;
+		std::cout << YELLOW_COLOR << "Input data file open correctly\n" << RESET_COLOR << std::endl;
 	else
 	{
-		std::cerr << "input data file cannot be opened correctly or does not exist" << std::endl;
+		std::cerr << "Input data file cannot be opened correctly or does not exist" << std::endl;
 		throw std::exception();
 	}
 
 
 	std::getline(input, first_line);
 
-	std::cout << first_line << std::endl;
+//	std::cout << first_line << std::endl;
 
 	if(first_line.compare("date | value"))
 	{
@@ -128,6 +127,11 @@ void	BitcoinExchange::init_input(const char *filename)
 
 	parse_input(input);
 	input.close();
+	if(input.is_open())
+		throw std::exception();
+	else
+		std::cout << YELLOW_COLOR "\nInput data file closed correctly\n" << RESET_COLOR << std::endl;
+
 }
 
 
@@ -162,6 +166,16 @@ std::map<std::string, float>	BitcoinExchange::get_map()
 	return this->_map;
 }
 
+float	BitcoinExchange::get_rate()
+{
+	return this->_rate;
+}
+
+bool	BitcoinExchange::get_valid()
+{
+	return this->_valid;
+}
+
 
 bool	BitcoinExchange::has_thirty_days(int month)
 {
@@ -193,7 +207,7 @@ bool	BitcoinExchange::vali_date(const std::string& date)
 
 	std::istringstream	line_reader(date);
 
-	if(date.length() > 11)
+	if(date.length() > 10)
 		return false;
 
 	line_reader >> year >> splitter_1 >> month >> splitter_2 >> day;
@@ -217,50 +231,46 @@ float	BitcoinExchange::valid_float(const std::string& value)
 	float	num;
 	
 	std::stringstream ss(value);
-	std::cout << "value es: " << value << std::endl;
+//	std::cout << "value es: " << value << std::endl;
 
 	ss >> num;
-	std::cout << "number es :" << num << std::endl;
+//	std::cout << "number es :" << num << std::endl;
 
 	return(num);
 }
 
 
-/*
-void	BitcoinExchange::find_rate(std::string& date)
-{
-	std::string result = this->_map.lower_bound(date)->first;
-	if(result == date)
-		std::cout << result << std::endl;
-	else
-	{
-		result = lower_bound--
-	}
-	
-}*/
 
 void	BitcoinExchange::find_rate(std::string& date) 
 {
-    std::map<std::string, float>::iterator it = this->_map.lower_bound(date);
-    std::string result = it->first;
-    this->_valid = true;	
+	bool last = false;
+    	std::map<std::string, float>::iterator it = this->_map.lower_bound(date);
 
-    if (result.compare(date) == 0) 
-    {
-	    this->_rate = it->second;
-	    std::cout << "rate es : " << this->_rate << std::endl;
-    }
+    	if(it == this->_map.end())
+	{
+		last = true;
+		it = std::prev(it);
+	}
+
+	std::string result = it->first;
+	this->_valid = true;	
+
+	if (result.compare(date) == 0 || last) 
+	{
+		this->_rate = it->second;
+//		std::cout << "rate es : " << this->_rate << std::endl;
+	}
     
-    else 
-    {
-        if (it != this->_map.begin()) 
+	else 
+	{
+		if (it != this->_map.begin()) 
 	{ 
 		--it;
 		result = it->first;
 		if(vali_date(result))
 		{
 			this->_rate = it->second;
-			std::cout << "rate es : " << this->_rate << std::endl;
+//			std::cout << "rate es : " << this->_rate << std::endl;
 		}
 
 		else
