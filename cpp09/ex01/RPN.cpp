@@ -43,8 +43,8 @@ void	RPN::operand_handler()
 
 	if(this->_num_stack.size() < 2)
 	{
-		std::cout << "Error: Insuficient operands for execute" << std::endl;
-		throw std::exception();
+//		std::cout << "Error: Insuficient operands for execute" << std::endl;
+		throw RPN::InsuficientOperandsException();
 	}
 	number_two = this->_num_stack.top();
 	this->_num_stack.pop();
@@ -60,8 +60,8 @@ void	RPN::operand_handler()
 	{
 		if(number_two == 0)
 		{
-			std::cout << "Error: Division by zero equals infinity" << std::endl;
-			throw std::exception();
+//			std::cout << "Error: Division by zero equals infinity" << std::endl;
+			throw RPN::DivisionByZeroException();
 		}
 		else
 			result = number_one / number_two;
@@ -82,16 +82,16 @@ void	RPN::number_handler()
 				continue;
 			else
 			{
-				std::cout << "Error: bad input." << std::endl;
-				throw std::exception();
+//				std::cout << "Error: bad input." << std::endl;
+				throw RPN::BadInputException();
 			}
 		}
 	}
 	convert >> num;
 	if(num > 9 || num < MIN_VALUE)
 	{
-		std::cout << "Error: number too high or too low" << std::endl;
-		throw std::exception();
+//		std::cout << "Error: number too high or too low" << std::endl;
+		throw RPN::NumberTooHighOrTooLowException();
 	}
 	this->_num_stack.push(num);
 }
@@ -112,12 +112,38 @@ void	RPN::exec(const char* input)
 
 	if (this->_num_stack.size() != 1)
 	{
-		std::cout << "Error: invalid input" << std::endl;
-		throw std::exception();
+//		std::cout << "Error: invalid input" << std::endl;
+		throw RPN::InvalidInputException();
 	}
 
 	std::cout << this->_num_stack.top() << std::endl;
 }
+
+const char *RPN::InsuficientOperandsException::what(void) const throw()
+{
+	return("Insuficient Operands");
+}
+
+const char *RPN::DivisionByZeroException::what(void) const throw()
+{
+	return("Division by Zero");
+}
+
+const char *RPN::BadInputException::what(void) const throw()
+{
+	return("Bad Input");
+}
+
+const char *RPN::NumberTooHighOrTooLowException::what(void) const throw()
+{
+	return("Number Too High or Too Low");
+}
+
+const char *RPN::InvalidInputException::what(void) const throw()
+{
+	return("Invalid Input");
+}
+
 
 				
 

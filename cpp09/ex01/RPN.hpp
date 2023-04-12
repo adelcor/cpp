@@ -24,7 +24,41 @@ class RPN
 		void	number_handler();
 		bool	is_operand();
 
+
+	class InsuficientOperandsException : public std::exception
+	{
+		public:
+			virtual const char *what() const throw();
+	};
+
+	class DivisionByZeroException : public std::exception
+	{
+		public:
+			virtual const char *what() const throw();
+	};
+
+	class BadInputException : public std::exception
+	{
+		public:
+			virtual const char *what() const throw();
+	};
+
+	class NumberTooHighOrTooLowException : public std::exception
+	{
+		public:
+			virtual const char *what() const throw();
+	};
+
+	class InvalidInputException : public std::exception
+	{
+		public:
+			virtual const char *what() const throw();
+	};
+
 };
+
+
+
 
 
 
