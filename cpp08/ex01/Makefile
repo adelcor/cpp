@@ -1,7 +1,7 @@
-SRCS			= main.cpp span.cpp
+SRCS			= main.cpp Span.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
-CXX				= c++
+CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
