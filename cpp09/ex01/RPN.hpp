@@ -21,6 +21,7 @@ class RPN
 		~RPN();
 		void	exec(const char *input);
 		void	operand_handler();
+		void	number_handler();
 		bool	is_operand();
 
 };

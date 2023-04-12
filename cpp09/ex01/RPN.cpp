@@ -69,50 +69,53 @@ void	RPN::operand_handler()
 	this->_num_stack.push(result);
 }
 
+void	RPN::number_handler()
+{
+	std::istringstream convert(this->_element);
+	int	num;
+	
+	for(std::string::iterator it = this->_element.begin(); it != this->_element.end(); ++it)
+	{
+		if(!std::isdigit(*it))
+		{
+			if(*it == '-' && (it == this->_element.begin()) && this->_element.size() > 1)
+				continue;
+			else
+			{
+				std::cout << "Error: bad input." << std::endl;
+				throw std::exception();
+			}
+		}
+	}
+	convert >> num;
+	if(num > 9 || num < MIN_VALUE)
+	{
+		std::cout << "Error: number too high or too low" << std::endl;
+		throw std::exception();
+	}
+	this->_num_stack.push(num);
+}
+
+
+
 void	RPN::exec(const char* input)
 {
 	std::istringstream	input_stream(input);
-	int					num;
-		
-
+	
 	while(input_stream >> this->_element)
 	{
 		if(is_operand())
-		{
 			operand_handler();
-		}
-
-
 		else
-		{
-			for(std::string::iterator it = this->_element.begin(); it != this->_element.end(); ++it)
-			{
-				if(!std::isdigit(*it))
-				{
-					if(*it == '-' && (it == this->_element.begin()) && this->_element.size() > 1)
-						continue;
-					else
-					{
-						std::cout << "Error: bad input." << std::endl;
-						throw std::exception();
-					}
-				}
-			}
-			std::istringstream convert(this->_element);
-			convert >> num;
-			if(num > 9 || num < MIN_VALUE)
-			{
-				std::cout << "Error: number too high or too low" << std::endl;
-				throw std::exception();
-			}
-			this->_num_stack.push(num);
-		}
+			number_handler();
 	}
+
 	if (this->_num_stack.size() != 1)
 	{
-		std::cout << "Error: invalid input." << std::endl;
+		std::cout << "Error: invalid input" << std::endl;
 		throw std::exception();
 	}
+
 	std::cout << this->_num_stack.top() << std::endl;
 }
 
