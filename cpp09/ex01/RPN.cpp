@@ -121,7 +121,7 @@ void	RPN::exec(const char* input)
 
 const char *RPN::InsuficientOperandsException::what(void) const throw()
 {
-	return("Insuficient Operands");
+	return("Insufficient Operands");
 }
 
 const char *RPN::DivisionByZeroException::what(void) const throw()
