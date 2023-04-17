@@ -329,3 +329,5 @@ void	BitcoinExchange::find_rate(std::string& date)
 
 
 
+
+

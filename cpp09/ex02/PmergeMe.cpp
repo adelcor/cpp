@@ -46,7 +46,6 @@ void PmergeMe::validateNum(const char *arg)
 
 void PmergeMe::printVector()
 {
-	std::cout << "Vector: ";
 	std::vector<int>::iterator iter;
 	for(iter = this->_vector.begin(); iter != this->_vector.end(); ++iter)
 	{
@@ -57,7 +56,6 @@ void PmergeMe::printVector()
 
 void PmergeMe::printDeque()
 {
-	std::cout << "Deque: ";
 	std::deque<int>::iterator iter;
 	for(iter = this->_deque.begin(); iter != this->_deque.end(); ++iter)
 	{
@@ -66,26 +64,20 @@ void PmergeMe::printDeque()
 	std::cout << std::endl;
 }
 
-bool PmergeMe::isDuplicate()
+std::vector<int> PmergeMe::getVector()
 {
-	for(size_t i = 0; i < this->_vector.size(); ++i)
-	{
-		for(size_t j = i + 1; j < this->_vector.size(); ++j)
-		{
-			if(this->_vector[i] == this->_vector[j])
-				return true;
-		}
-	}
-	return false;
+	return this->_vector;
 }
 
+std::deque<int> PmergeMe::getDeque()
+{
+	return this->_deque;
+}
 
 void PmergeMe::exec(char **argv)
 {
-//	std::clock_t	start;
-//	std::clock_t	end;
-//	double			vtime;
-//	double			dtime;
+	double			vector_time;
+	double			deque_time;
 	int				number;
 	
 	for(int i = 0; argv[i] != 0; ++i)
@@ -96,15 +88,15 @@ void PmergeMe::exec(char **argv)
 		this->_deque.push_back(number);
 	}
 
-	if(isDuplicate())
-	{
-		std::cout << "Duplicated numbers" << std::endl;
-		exit(0);
-	}
-
+	std::cout << "Before: ";
 	printVector();
+	vector_time = chrono(this->_vector);
+	deque_time = chrono(this->_deque);
+	std::cout << "After: ";
 	printDeque();
-
+	std::cout << std::setiosflags(std::ios::fixed) << std::setprecision(5);
+	std::cout << "Time to process a range of " << this->_vector.size() << " elements with std::vector : " << vector_time << " ms\n";
+	std::cout << "Time to process a range of " << this->_deque.size() << " elements with std::deque : " << deque_time << " ms\n";
 }
 
 

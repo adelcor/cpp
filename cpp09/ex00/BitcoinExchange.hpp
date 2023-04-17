@@ -35,6 +35,7 @@ class	BitcoinExchange
 		void	find_rate(std::string& date);
 		bool	get_valid();
 		float	get_rate();
+		
 	
 };
 
