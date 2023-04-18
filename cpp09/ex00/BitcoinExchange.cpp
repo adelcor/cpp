@@ -24,7 +24,7 @@ void	BitcoinExchange::init_database(const char* filename )
 	std::string	buffer;
 
 	if(database.is_open())
-		std::cout << CYAN_COLOR << "\nDatabase is open correctly\n" << RESET_COLOR << std::endl;
+		std::cout << CYAN_COLOR << "\nDatabase has been opened succesfully\n" << RESET_COLOR << std::endl;
 	else
 		throw std::exception();
 
@@ -45,7 +45,7 @@ void	BitcoinExchange::init_database(const char* filename )
 	if(database.is_open())
 		throw std::exception();
 	else
-		std::cout << CYAN_COLOR << "Database is closed correctly\n" << CYAN_COLOR << std::endl;
+		std::cout << CYAN_COLOR << "Database has been closed succesfully\n" << CYAN_COLOR << std::endl;
 }
 
 void	BitcoinExchange::parse_input(std::ifstream &input)
@@ -82,13 +82,15 @@ void	BitcoinExchange::parse_input(std::ifstream &input)
 		else if(number > 1000)
 			std::cout << "Error: too large a number." << std::endl;
 
-		else if(number < 1000 && number > 0)
+		else if(number <= 1000 && number > 0)
 		{
 			find_rate(date);
 			if(this->_valid)
 			{
 				bitcoin_value = number * this->_rate;
-				std::cout << date << " => " << number << " = " << bitcoin_value << std::endl;
+				std::cout << date << " => " << number << " = ";
+				std::cout << std::setiosflags(std::ios::fixed) << std::setprecision(2);
+				std::cout << bitcoin_value << std::endl;
 			}
 
 
@@ -107,7 +109,7 @@ void	BitcoinExchange::init_input(const char *filename)
 	std::string	first_line;
 
 	if(input.good())
-		std::cout << YELLOW_COLOR << "Input data file open correctly\n" << RESET_COLOR << std::endl;
+		std::cout << YELLOW_COLOR << "Input data file has been opened succesfully\n" << RESET_COLOR << std::endl;
 	else
 	{
 		std::cerr << "Input data file cannot be opened correctly or does not exist" << std::endl;
@@ -130,7 +132,7 @@ void	BitcoinExchange::init_input(const char *filename)
 	if(input.is_open())
 		throw std::exception();
 	else
-		std::cout << YELLOW_COLOR "\nInput data file closed correctly\n" << RESET_COLOR << std::endl;
+		std::cout << YELLOW_COLOR "\nInput data file has been closed succesfully\n" << RESET_COLOR << std::endl;
 
 }
 

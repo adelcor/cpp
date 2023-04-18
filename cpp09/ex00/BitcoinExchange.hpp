@@ -5,6 +5,8 @@
 #include <map>
 #include <sstream>
 #include <fstream>
+#include <iomanip>
+
 #define RESET_COLOR "\033[0m"
 #define YELLOW_COLOR "\033[33m"
 #define CYAN_COLOR "\033[36m"
