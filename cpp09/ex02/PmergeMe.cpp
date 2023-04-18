@@ -41,9 +41,6 @@ void PmergeMe::validateNum(const char *arg)
 		throw std::invalid_argument("number too long");
 }
 				
-
-
-
 void PmergeMe::printVector()
 {
 	std::vector<int>::iterator iter;
@@ -95,8 +92,8 @@ void PmergeMe::exec(char **argv)
 	std::cout << "After: ";
 	printDeque();
 	std::cout << std::setiosflags(std::ios::fixed) << std::setprecision(5);
-	std::cout << "Time to process a range of " << this->_vector.size() << " elements with std::vector : " << vector_time << " ms\n";
-	std::cout << "Time to process a range of " << this->_deque.size() << " elements with std::deque : " << deque_time << " ms\n";
+	std::cout << "Time to process a range of " << this->_vector.size() << " elements with std::vector : " << vector_time << " us\n";
+	std::cout << "Time to process a range of " << this->_deque.size() << " elements with std::deque : " << deque_time << " us\n";
 }
 
 

@@ -10,8 +10,8 @@ int main(int argc, char **argv)
 		}
 
 
-		PmergeMe test;
-		test.exec(++argv);
+		PmergeMe merge;
+		merge.exec(++argv);
 	}
 
 	catch(std::exception &e)
