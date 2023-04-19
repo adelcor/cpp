@@ -71,33 +71,34 @@ std::deque<int> PmergeMe::getDeque()
 	return this->_deque;
 }
 
+void PmergeMe::init(char **argv)
+{
+	for(int i = 0; argv[i] != 0; ++i)
+		validateNum(argv[i]);
+
+	std::cout << "Before: ";
+
+	for(int x = 0; argv[x] != 0; ++x)
+		std::cout << argv[x] << " ";
+
+	std::cout << std::endl;
+}
+
+
 void PmergeMe::exec(char **argv)
 {
 	double			vector_time;
 	double			deque_time;
-	int				number;
 	
-	for(int i = 0; argv[i] != 0; ++i)
-	{
-		validateNum(argv[i]);
-		std::istringstream(argv[i]) >> number;
-		this->_vector.push_back(number);
-		this->_deque.push_back(number);
-	}
+	init(argv);
 
-	std::cout << "Before: ";
-	printVector();
-	vector_time = chrono(this->_vector);
-	deque_time = chrono(this->_deque);
+	deque_time = chrono(this->_deque, argv);
+	vector_time = chrono(this->_vector, argv);
+	
 	std::cout << "After: ";
 	printDeque();
+
 	std::cout << std::setiosflags(std::ios::fixed) << std::setprecision(5);
 	std::cout << "Time to process a range of " << this->_vector.size() << " elements with std::vector : " << vector_time << " us\n";
 	std::cout << "Time to process a range of " << this->_deque.size() << " elements with std::deque : " << deque_time << " us\n";
 }
-
-
-
-
-
-

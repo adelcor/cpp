@@ -23,6 +23,7 @@ class PmergeMe
 
 			void	exec(char **argv);
 			void	validateNum(const char *arg);
+			void	init(char **argv);
 			void	printVector();
 			void	printDeque();
 			std::vector<int> getVector();
@@ -82,17 +83,32 @@ class PmergeMe
 
 			template <class Container>
 
-                        double chrono(Container &cont)
+                        double  chrono(Container &cont, char **argv)
                         {
                                 std::clock_t    start;
                                 std::clock_t    end;
 				
 				start = clock();
-
+				push_container(cont, argv);
                                 merge(cont, cont.begin(), (--cont.end()));
                                 end = clock();
-                                return(static_cast<double>(end-start) / CLOCKS_PER_SEC *1000.0);
+                                return(static_cast<double>(end-start) / CLOCKS_PER_SEC *1000);
                         }
+
+			template <class Container>
+			
+			void	push_container(Container &cont, char **argv)
+			{
+				int number;
+
+				for (int x = 0; argv[x] != 0; ++x)
+				{
+					std::istringstream(argv[x]) >> number;
+					cont.push_back(number);
+				}
+			}
+
+
 
 
 
