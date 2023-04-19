@@ -91,7 +91,7 @@ class PmergeMe
 
                                 merge(cont, cont.begin(), (--cont.end()));
                                 end = clock();
-                                return(static_cast<double>(end-start) / CLOCKS_PER_SEC *1000000);
+                                return(static_cast<double>(end-start) / CLOCKS_PER_SEC *1000.0);
                         }
 
 
